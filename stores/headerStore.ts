@@ -1,8 +1,11 @@
-import { defineStore } from 'pinia';
+import {defineStore, storeToRefs} from 'pinia';
 import axios from "axios";
 import { INavItem, IIcon } from "~/types";
+import {useGlobalStore} from "~/stores/globalStore";
 
-export type Lang = 'eng' | 'rus'
+const { baseUrl } = storeToRefs(useGlobalStore());
+
+export type Lang = 'eng' | 'rus';
 
 interface IState {
   navigation: INavItem[] | null;
@@ -25,7 +28,7 @@ export const useHeaderStore = defineStore('header', {
     async HEADER_REQUEST() {
       try {
         await axios
-          .get(`/api/${this.currentLang}/header`)
+          .get(`${baseUrl.value}/api/${this.currentLang}/header`)
           .then(({ data }) => {
             this.navigation = data.navigation;
             this.icons = data.icons;

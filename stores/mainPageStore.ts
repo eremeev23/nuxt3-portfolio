@@ -2,8 +2,10 @@ import {defineStore, storeToRefs} from "pinia";
 import axios from "axios";
 import { ISkill } from "~/types";
 import {useHeaderStore} from "~/stores/headerStore";
+import {useGlobalStore} from "~/stores/globalStore";
 
 const { currentLang } = storeToRefs(useHeaderStore());
+const { baseUrl } = storeToRefs(useGlobalStore());
 
 export interface IMainPage {
   title_text: string | null;
@@ -24,7 +26,7 @@ export const useMainPageStore = defineStore('main-page', {
 
       try {
         await axios
-          .get(`/api/${currentLang.value}/mainPage`)
+          .get(`${baseUrl.value}/api/${currentLang.value}/mainPage`)
           .then(({ data }) => {
             this.mainPage = data;
           })

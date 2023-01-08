@@ -2,8 +2,10 @@ import { defineStore, storeToRefs } from "pinia";
 import { IProject } from "~/types";
 import axios from "axios";
 import { useHeaderStore } from "~/stores/headerStore";
+import {useGlobalStore} from "~/stores/globalStore";
 
 const { currentLang } = storeToRefs(useHeaderStore());
+const { baseUrl } = storeToRefs(useGlobalStore());
 
 export const useProjectsStore = defineStore('projects', {
   state: () => ({
@@ -15,7 +17,7 @@ export const useProjectsStore = defineStore('projects', {
     async PROJECTS_REQUEST() {
       try {
         await axios
-          .get(`/api/${currentLang.value}/projects`)
+          .get(`${baseUrl.value}/api/${currentLang.value}/projects`)
           .then(({ data }) => {
             this.projects = data;
           })
