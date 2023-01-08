@@ -10,7 +10,7 @@ export default defineNuxtConfig({
         { name: 'description', content: 'Maksim Eremeev`s site. Frontend developer.' }
       ],
       htmlAttrs: {
-        lang: 'eng',
+        lang: 'en',
       },
       link: [
         {

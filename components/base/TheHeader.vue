@@ -58,6 +58,8 @@ const menuHandler = () => {
           <button
             @click="menuHandler"
             :class="menuStatus ? 'burger-button opened' : 'burger-button'"
+            role="button"
+            aria-label="menu"
           >
             <span></span>
             <span></span>
