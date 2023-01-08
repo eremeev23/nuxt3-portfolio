@@ -1,5 +1,5 @@
 const data = {
-  title_text: 'Hi! My name is Maksim and I am frontend developer',
+  title_text: 'Hi! My name is Maksim and I am a frontend developer',
   main_text: "I have a few years of experience working in a web studio as a front-end developer. In this role, I have had the opportunity to work on a wide range of projects for a variety of clients, including small businesses, startups, and large corporations. I have honed my skills in HTML, CSS, and JavaScript, and have become proficient in using Vue to build dynamic and responsive user interfaces.<br><br> I have also gained valuable experience working in a team environment, collaborating with designers, back-end developers, and project managers to deliver high-quality web applications on time and within budget. Overall, my experience in a web studio has provided me with a strong foundation in front-end development and has given me the skills and confidence to tackle any project that comes my way.",
   photo: "me.png",
   skills: {
