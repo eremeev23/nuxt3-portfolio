@@ -1,0 +1,24 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@nuxt/image-edge": "^1.0.0-27840416.dc1ed65",
+    "nuxt": "3.0.0"
+  },
+  "dependencies": {
+    "@nuxtjs/tailwindcss": "^6.2.0",
+    "@pinia/nuxt": "^0.4.6",
+    "axios": "^1.2.2",
+    "nuxt-icons": "^3.0.0",
+    "nuxt-swiper": "^0.1.6",
+    "pinia": "^2.0.28",
+    "sass": "^1.57.1",
+    "sass-loader": "^13.2.0"
+  }
+}

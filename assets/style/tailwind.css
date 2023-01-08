@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
+@import 'global.scss';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  @apply text-white tracking-tighter bg-dark;
+  font-family: 'Fira Code', monospace;
+}
+
+.page-section {
+  @apply mb-16 lg:mb-20
+}
+
+.swiper-pagination-progressbar-fill {
+  background-color: #1fb6ff !important;
+}
+
+.modals.opened {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0 0 0 / .5);
+  backdrop-filter: blur(2px);
+  z-index: 90;
+}
+
+.modal {
+  @apply fixed bottom-1/2 right-1/2 translate-y-1/2 translate-x-1/2 z-[99] bg-[#fff] py-[40px] px-[30px] w-[260px];
+  box-shadow: 4px 4px 0 #ccc;
+}
+
+.modal .close {
+  @apply absolute right-[7px] top-[7px] text-[#232323] p-1 bg-[#fff];
+}
+
+.nuxt-icon.nuxt-icon--fill {
+  fill: none !important;
+  color: inherit !important;
+}
+
+.modal .close svg {
+  width: 12px;
+  height: 12px;
+  fill: none !important;
+  color: inherit !important;
+  background-color: transparent !important;
+}
+
+.modal .close svg path {
+  fill: none !important;
+  stroke: currentColor;
+  color: inherit !important;
+  background-color: transparent !important;
+}
