@@ -85,7 +85,7 @@ const designedByText = computed(():string => currentLang.value === 'eng' ? 'Desi
   }
 
   a {
-    @apply transition-colors hover:text-blue;
+    @apply transition-colors underline hover:text-blue;
   }
 }
 </style>

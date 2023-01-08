@@ -55,8 +55,7 @@ const linkText404 = computed(():string => currentLang.value === 'eng' ? 'go to h
     }
 
     a {
-      @apply block py-3 px-4 border-2 border-[#fff] text-lg transition-colors hover:text-dark hover:bg-white;
-      box-shadow: 4px 4px 0 #ccc;
+      @apply block py-3 px-4 border-2 border-[#fff] text-lg shadow-4p transition-colors hover:text-dark hover:bg-white;
       transition: transform .2s ease-in-out, box-shadow .2s ease-in-out;
 
       &:hover {

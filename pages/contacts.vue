@@ -82,13 +82,7 @@ useHead({
 
 <style lang="scss" scoped>
 .contacts-wrapper {
-  @apply relative max-w-md w-full relative p-3 border-2 border-[#fff] sm:p-4;
-  box-shadow: 8px 8px 0 #ccc;
-  overflow: hidden;
-
-  @media screen and (max-width: 640px) {
-    box-shadow: 4px 4px 0 #ccc;
-  }
+  @apply relative max-w-md w-full relative p-3 shadow-4p sm:shadow-8p border-2 border-[#fff] overflow-hidden sm:p-4;
 
   &.active {
     @apply border-green;

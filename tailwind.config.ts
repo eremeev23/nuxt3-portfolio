@@ -32,6 +32,11 @@ module.exports = {
         'custom': 'repeat(auto-fill, minmax(240px, 1fr))',
         'custom-5': 'repeat(auto-fill, minmax(300px, 1fr))',
       },
+      boxShadow: {
+        '2p': '2px 2px 0 #ccc',
+        '4p': '4px 4px 0 #ccc',
+        '8p': '8px 8px 0 #ccc',
+      }
     }
   },
 }

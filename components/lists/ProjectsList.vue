@@ -15,8 +15,8 @@ const props = defineProps<IProps>();
       :key="project.slug"
       class="list-item bg-dark "
     >
-      <nuxt-link class="flex flex-col border-2 border-white" :to="`/projects/${project.slug}`">
-        <div class="border-white flex-2 h-[240px]">
+      <nuxt-link class="flex flex-col border-2 border-white items-end" :to="`/projects/${project.slug}`">
+        <div class="border-white w-full flex-2 h-[240px]">
           <nuxt-img
             class="object-cover max-h-full h-full w-full object-top"
             :src="`/images/${project.image}`"
@@ -25,7 +25,7 @@ const props = defineProps<IProps>();
             preload
           />
         </div>
-        <div class="py-2 px-3 border-y-2 flex flex-wrap gap-2 sm:h-[68px] sm:p-4">
+        <div class="w-full py-2 px-3 border-y-2 flex flex-wrap gap-2 sm:h-[68px] sm:p-4">
           <span
             class="text-sm"
             v-for="(tech, i) in project.stack"
@@ -34,7 +34,7 @@ const props = defineProps<IProps>();
             {{ tech }}
           </span>
         </div>
-        <div class="p-3 flex flex-3 flex-col gap-2 sm:p-4">
+        <div class="p-3 w-full flex flex-3 flex-col gap-2 sm:p-4">
           <h3 class="text-lg">
             {{ project.title }}
           </h3>
@@ -42,6 +42,9 @@ const props = defineProps<IProps>();
             {{ project.caption }}
           </p>
         </div>
+        <span class="block mr-3 my-4 px-3 py-1.5 shadow-2p border-[1px] border-[#fff] text-sm sm:hidden">
+          more ->
+        </span>
       </nuxt-link>
     </li>
   </ul>

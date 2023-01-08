@@ -156,7 +156,7 @@ const validateForm = () => {
 
     &:hover {
       transform: translateY(-4px) translateX(-4px);
-      box-shadow: 4px 4px 0 #ccc;
+      @apply shadow-4p;
     }
 
     &.active {
