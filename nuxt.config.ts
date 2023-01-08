@@ -9,6 +9,9 @@ export default defineNuxtConfig({
       meta: [
         { name: 'description', content: 'Maksim Eremeev`s site. Frontend developer.' }
       ],
+      htmlAttrs: {
+        lang: 'eng',
+      },
       link: [
         {
           rel: "preconnect",

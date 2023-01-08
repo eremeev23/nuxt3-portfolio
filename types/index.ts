@@ -5,6 +5,7 @@ export interface INavItem {
 }
 
 export interface IIcon {
+  name?: string;
   icon: string;
   href?: string;
 }

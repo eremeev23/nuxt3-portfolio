@@ -14,8 +14,10 @@ const { icons } = storeToRefs(useHeaderStore());
         :key="item.icon"
         :href="item.href"
         target="_blank"
+        :title="item.name"
       >
         <nuxt-icon :name="item.icon" :filled="false" />
+        <span style="display: none">{{ item.name }}</span>
       </a>
     </div>
   </div>
