@@ -38,7 +38,11 @@ const goToSlide = (i:number) => {
               v-for="(image, i) in project.slides"
               :key="i"
           >
-            <nuxt-img preset="default" :src="`/images/${image}`" />
+            <nuxt-img
+              preset="default"
+              :src="`/images/${image}`"
+              :alt="`screenshot ${i + 1}`"
+            />
           </swiper-slide>
         </Swiper>
       </client-only>
@@ -53,7 +57,11 @@ const goToSlide = (i:number) => {
         :key="i"
         class="image-wrapper"
       >
-        <nuxt-img preset="default" :src="`/images/${image}`" />
+        <nuxt-img
+          preset="default"
+          :src="`/images/${image}`"
+          :alt="`screenshot ${i + 1}`"
+        />
       </div>
     </section>
     <section class="project-content__sticky">
@@ -64,7 +72,11 @@ const goToSlide = (i:number) => {
           class="image-wrapper"
           @click="goToSlide(i)"
         >
-          <nuxt-img preset="default" :src="`/images/${image}`" />
+          <nuxt-img
+            preset="default"
+            :src="`/images/${image}`"
+            :alt="`screenshot ${i + 1}`"
+          />
         </div>
       </div>
     </section>

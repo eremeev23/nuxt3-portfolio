@@ -59,7 +59,7 @@ useHead({
             {{ formTitle }}
           </h3>
 
-          <button @click="showForm = !showForm">
+          <button role="button" aria-label="switch tabs" @click="showForm = !showForm">
             {{ buttonText }}
           </button>
         </div>

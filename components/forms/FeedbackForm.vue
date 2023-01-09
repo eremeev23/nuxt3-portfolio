@@ -138,6 +138,8 @@ const validateForm = () => {
       class="feedback-form__submit"
       :class="{'error': formActive && formValid, 'active': formActive && !formValid}"
       type="submit"
+      role="button"
+      aria-label="submit"
     >
       {{ submitButtonText }}
     </button>

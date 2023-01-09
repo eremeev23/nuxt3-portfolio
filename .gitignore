@@ -6,3 +6,6 @@ node_modules
 .output
 .env
 dist
+/.firebaserc
+/database.rules.json
+/firebase.json

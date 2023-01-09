@@ -17,9 +17,11 @@ const errorText = computed(():string =>  currentLang.value === 'eng' ? 'Message 
         class="modal signup-modal"
     >
       <button
-          @click="useGlobalStore().TOGGLE_RESPONSE_MODAL"
-          class="close"
-          type="button"
+        @click="useGlobalStore().TOGGLE_RESPONSE_MODAL"
+        class="close"
+        type="button"
+        role="button"
+        aria-label="close"
       >
         <nuxt-icon name="close-icon" />
       </button>
