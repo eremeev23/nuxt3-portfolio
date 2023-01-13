@@ -1,10 +1,11 @@
 <script lang="ts" setup>
-import {IProject} from "~/types";
+import { IProject } from "~/types";
 import ProjectContentInfo from "~/components/project/ProjectContentInfo.vue";
 
 interface IPops {
   project: IProject
 }
+
 const props = defineProps<IPops>();
 const data = reactive({
   modules: [SwiperPagination],

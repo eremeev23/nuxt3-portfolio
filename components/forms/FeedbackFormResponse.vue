@@ -6,7 +6,7 @@ import { useHeaderStore } from "~/stores/headerStore";
 const { responseSuccess } = storeToRefs(useGlobalStore());
 const { currentLang } = storeToRefs(useHeaderStore());
 
-const responseText = computed(():string =>  currentLang.value === 'eng' ? 'Message is sent' : 'Сообщение отправлено');
+const responseText = computed(():string =>  currentLang.value === 'eng' ? 'Thank you, your message is sent' : 'Спасибо, ваше сообщение отправлено');
 const errorText = computed(():string =>  currentLang.value === 'eng' ? 'Message isn`t sent. Something goes wrong.' : 'Сообщение не отправлено. Что-то пошло не так.');
 </script>
 
