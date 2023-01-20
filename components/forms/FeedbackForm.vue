@@ -1,11 +1,11 @@
 <script lang="ts" setup>
+import { ComputedRef } from "vue";
+import { storeToRefs } from "pinia";
+import { useContactsStore } from "~/stores/contactsStore";
+import { useHeaderStore } from "~/stores/headerStore";
+import { useGlobalStore } from "~/stores/globalStore";
 import InputBlock from '~/components/forms/InputBlock.vue';
 import TextareaBlock from '~/components/forms/TextareaBlock.vue';
-import {useContactsStore} from "~/stores/contactsStore";
-import {storeToRefs} from "pinia";
-import {useHeaderStore} from "~/stores/headerStore";
-import {ComputedRef} from "vue";
-import {useGlobalStore} from "~/stores/globalStore";
 
 interface IInput {
   name: string;

@@ -1,6 +1,4 @@
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <footer class="custom-container mt-20 mx-auto">
@@ -13,11 +11,9 @@
       </a>
     </div>
     <div class="flex items-center justify-center text-[10px] text-gray-300 py-4">
-      (c) MAKSIM EREMEEV 2023
+      (c) MAKSIM EREMEEV {{ new Date().getFullYear() }}
     </div>
   </footer>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
