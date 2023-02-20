@@ -1,7 +1,7 @@
 import {defineStore, storeToRefs} from 'pinia';
 import axios from "axios";
 import { INavItem, IIcon } from "~/types";
-import {useGlobalStore} from "~/stores/globalStore";
+import { useGlobalStore } from "~/stores/globalStore";
 
 const { baseUrl } = storeToRefs(useGlobalStore());
 

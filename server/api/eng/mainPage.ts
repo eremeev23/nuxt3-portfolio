@@ -27,6 +27,57 @@ const data = {
       }
     ]
   },
+  career: {
+    title: "career",
+    list: [
+      {
+        id: 2,
+        title: "Plenexy",
+        link: "https://plenexy.ru/",
+        from: "december'22",
+        to: "present",
+        role: "middle-frontend-developer",
+        summary: "Developing marketplace on Nuxt3 with TypeScript and Pinia as a state manager.",
+        list: [
+          "code optimization",
+          "working in a front-end team",
+          "refactoring and reviewing code",
+          "discussing business logic of the project",
+          "writing tech documentations"
+        ],
+        order: 1
+      },
+      {
+        id: 1,
+        title: "Grokhotov Studio",
+        link: "https://www.positron-it.ru/",
+        from: "june'21",
+        to: "december'22",
+        role: "frontend-developer",
+        summary: "Develop web-applications, company websites and e-commerce projects on Vue.js 2 or Nuxt.js 2. As a state manager I’ve been using Vuex. Also, used GSAP for fancy animations and transitions.",
+        list: [
+          "integrating third-party libraries like vue-yandex-map",
+          "code-reviewing",
+          "team work",
+          "discussing of the project designs and structures",
+          "discussing of the API structure with backend team",
+          "3 months leading frontend team",
+          "writing tech documentations"
+        ],
+        order: 2
+      },
+      {
+        id: 0,
+        title: "Freelance",
+        link: "/projects",
+        from: "march'21",
+        to: "june'21",
+        role: "frontend-developer",
+        summary: "Creating Vue2 components for the team of freelancers. And developing my own pet projects.",
+        order: 3
+      }
+    ]
+  },
   facts: {
     title: 'facts-about-me',
     list: [

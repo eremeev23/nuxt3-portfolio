@@ -1,10 +1,10 @@
 <script setup lang="ts">
+import { useGlobalStore } from "~/stores/globalStore";
 import TheHeader from "~/components/base/TheHeader.vue";
 import TheFooter from "~/components/base/TheFooter.vue";
 import TheSidebar from "~/components/base/TheSidebar.vue";
 import TheMobileMenu from "~/components/base/TheMobileMenu.vue";
 import FeedbackFormResponse from "~/components/forms/FeedbackFormResponse.vue";
-import {useGlobalStore} from "~/stores/globalStore";
 
 const appStore = useGlobalStore();
 

@@ -28,3 +28,20 @@ export interface IProject {
   description?: string,
   designed: string
 }
+
+export interface ICareer {
+  id: number;
+  title: string;
+  link: string;
+  from: string;
+  to: string;
+  role: string;
+  summary: string;
+  list: string[];
+  order: number
+}
+
+export interface IPageBlock<T> {
+  title: string;
+  list: T[]
+}

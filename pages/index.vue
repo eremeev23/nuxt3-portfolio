@@ -1,11 +1,13 @@
 <script setup lang="ts">
+import { watch } from "vue";
 import { useMainPageStore } from "~/stores/mainPageStore";
 import { storeToRefs } from "pinia";
-import SkillsList from "~/components/lists/SkillsList.vue";
+import { useHeaderStore } from "~/stores/headerStore";
+import MainPageSkeleton from "~/components/skeletons/MainPageSkeleton.vue";
 import BorderedSpan from "~/components/global/BorderedSpan.vue";
 import PagesSecTitle from "~/components/global/PagesSecTitle.vue";
-import MainPageSkeleton from "~/components/skeletons/MainPageSkeleton.vue";
-import {useHeaderStore} from "~/stores/headerStore";
+import SkillsList from "~/components/lists/SkillsList.vue";
+import OneJob from "~/components/lists/OneJob.vue";
 
 const { mainPage } = storeToRefs(useMainPageStore());
 const { currentLang } = storeToRefs(useHeaderStore());
@@ -41,16 +43,26 @@ watch(
         </div>
       </section>
       <section v-if="mainPage.skills && mainPage.skills.title" class="page-section">
-        <pages-sec-title>{{mainPage.skills.title}}</pages-sec-title>
+        <pages-sec-title>{{ mainPage.skills?.title }}</pages-sec-title>
         <SkillsList
-          :list="mainPage.skills.list"
+          :list="mainPage.skills?.list"
         />
       </section>
+      <section v-if="mainPage.skills && mainPage.skills.title" class="page-section">
+        <pages-sec-title>{{ mainPage.career?.title }}</pages-sec-title>
+        <div class="flex flex-col gap-8">
+          <OneJob
+            v-for="job in mainPage.career?.list"
+            :key="job.id"
+            :job="job"
+          />
+        </div>
+      </section>
       <section v-if="mainPage.facts && mainPage.facts.title" class="page-section">
-        <pages-sec-title>{{ mainPage.facts.title }}</pages-sec-title>
+        <pages-sec-title>{{ mainPage.facts?.title }}</pages-sec-title>
         <div class="flex gap-2 flex-wrap sm:gap-4">
           <bordered-span
-              v-for="(fact, i) in mainPage.facts.list"
+              v-for="(fact, i) in mainPage.facts?.list"
               :key="i"
           >
             {{ fact }}
@@ -66,9 +78,5 @@ watch(
 <style lang="scss" scoped>
 .mail-title {
   @apply text-2xl mb-3 font-sans text-blue font-semibold tracking-normal lg:text-3xl lg:mb-4;
-}
-
-.page-section {
-
 }
 </style>

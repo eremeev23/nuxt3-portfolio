@@ -21,6 +21,25 @@
       <div class="flex-1 max-h-[200px] skeleton-box skeleton-element"></div>
     </div>
   </div>
+  <div class="page-section">
+    <div class="skeleton-title skeleton-element mb-6"></div>
+    <div class="flex flex-col gap-2 max-w-[640px] mb-6">
+      <div class="skeleton-text skeleton-element"></div>
+      <div class="skeleton-text skeleton-element"></div>
+      <div class="skeleton-text skeleton-element"></div>
+      <div class="skeleton-text skeleton-element"></div>
+      <div class="skeleton-text skeleton-element"></div>
+      <div class="skeleton-text skeleton-element"></div>
+    </div>
+    <div class="flex flex-col gap-2 max-w-[640px]">
+      <div class="skeleton-text skeleton-element"></div>
+      <div class="skeleton-text skeleton-element"></div>
+      <div class="skeleton-text skeleton-element"></div>
+      <div class="skeleton-text skeleton-element"></div>
+      <div class="skeleton-text skeleton-element"></div>
+      <div class="skeleton-text skeleton-element"></div>
+    </div>
+  </div>
 </template>
 
 <style lang="scss">

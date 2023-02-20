@@ -1,4 +1,4 @@
-import {defineStore} from "pinia";
+import { defineStore } from "pinia";
 const isProd = process.env.NODE_ENV === 'production'
 
 export const useGlobalStore = defineStore('global', {

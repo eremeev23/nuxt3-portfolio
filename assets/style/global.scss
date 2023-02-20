@@ -9,6 +9,11 @@ body {
   &::-webkit-scrollbar-thumb {
     background-color: #1fb6ff;
   }
+
+  *::selection {
+    background-color: #ff7849;
+    color: #fff;
+  }
 }
 
 input, select, button {

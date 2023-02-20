@@ -20,6 +20,9 @@ module.exports = {
       sans: ['Raleway', 'sans-serif'],
       serif: ['Merriweather', 'serif'],
     },
+    listStyleType: {
+      square: 'square'
+    },
     screens: {
       'sm': '640px',
       'md': '768px',
