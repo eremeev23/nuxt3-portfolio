@@ -6,7 +6,7 @@
 @tailwind utilities;
 
 * {
-  @apply text-white tracking-tighter bg-dark;
+  @apply text-white tracking-tighter bg-dark dark:font-medium dark:border-dark dark:bg-light transition-colors dark:text-dark;
   font-family: 'Fira Code', monospace;
 }
 

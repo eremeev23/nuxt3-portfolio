@@ -52,8 +52,8 @@ const inputValue = computed({
   @apply relative w-full;
 
   &__input {
-    @apply w-full py-3 px-3 border-2 border-[#fff] bg-dark text-sm sm:text-base sm:px-4;
-    transition: border-color .2s ease-in-out, color .2s ease-in-out, background-color 500000s ease-in-out;
+    @apply w-full py-3 px-3 border-2 border-[#fff] bg-dark text-sm sm:text-base sm:px-4 dark:bg-light dark:border-dark;
+    transition: border-color .2s ease-in-out, color .2s ease-in-out;
   }
 
   &__label {

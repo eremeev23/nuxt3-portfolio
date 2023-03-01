@@ -7,7 +7,6 @@ import PageTitle from "~/components/global/PageTitle.vue";
 import ProjectsList from "~/components/lists/ProjectsList.vue";
 import ProjectsSkeleton from "~/components/skeletons/ProjectsSkeleton.vue";
 
-
 const { projects } = storeToRefs(useProjectsStore());
 const { currentLang } = storeToRefs(useHeaderStore());
 const { PROJECTS_REQUEST } = useProjectsStore();

@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { defineProps } from "vue";
 import { IProject } from "~/types";
 
 interface IProps {
@@ -16,7 +17,7 @@ const props = defineProps<IProps>();
       class="list-item bg-dark "
     >
       <nuxt-link class="flex flex-col border-2 border-white items-end" :to="`/projects/${project.slug}`">
-        <div class="border-white w-full flex-2 h-[240px]">
+        <div class="relative border-white w-full flex-2 h-[240px]">
           <nuxt-img
             class="object-cover max-h-full h-full w-full object-top"
             :src="`/images/${project.image}`"
@@ -35,8 +36,10 @@ const props = defineProps<IProps>();
           </span>
         </div>
         <div class="p-3 w-full flex flex-3 flex-col gap-2 sm:p-4">
-          <h3 class="text-lg">
+          <h3 class="flex gap-2 justify-between items-start text-lg">
             {{ project.title }}
+
+            <nuxt-icon v-if="project.icon" class="mt-1" :name="project.icon" filled />
           </h3>
           <p class="opacity-[.6] text-sm">
             {{ project.caption }}
@@ -85,6 +88,18 @@ const props = defineProps<IProps>();
       right: -8px;
       background-color: #ccc;
     }
+  }
+}
+
+.dark .list-item:hover {
+  a {
+    border-color: #282C33;
+  }
+
+  &::before {
+    bottom: -8px;
+    right: -8px;
+    background-color: #282C33;
   }
 }
 </style>

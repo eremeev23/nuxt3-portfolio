@@ -52,7 +52,7 @@ const areaValue = computed({
   @apply relative w-full;
 
   &__textarea {
-    @apply w-full h-24 py-3 px-3 py-3 px-4 border-2 bg-dark border-[#fff] transition-colors sm:px-4;
+    @apply w-full h-24 py-3 px-3 py-3 px-4 border-2 bg-dark dark:bg-light dark:border-dark border-[#fff] transition-colors sm:px-4;
     outline: none;
     resize: none;
   }

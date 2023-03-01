@@ -1,5 +1,6 @@
 module.exports = {
   content: ['./src/**/*.{html,js}'],
+  darkMode: 'class',
   theme: {
     colors: {
       'blue': '#1fb6ff',
@@ -9,6 +10,7 @@ module.exports = {
       'green': '#13ce66',
       'white': '#f1f1f1',
       'dark': '#282C33',
+      'light': '#FFF0E5',
       'gray': {
         300: 'rgba(195,195,195,0.3)',
         500: 'rgba(195,195,195,0.5)',

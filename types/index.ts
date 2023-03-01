@@ -20,6 +20,7 @@ export interface IProject {
   title: string;
   stack: string[];
   image: string;
+  icon?: string;
   caption: string;
   link: string;
   repository: string | null;

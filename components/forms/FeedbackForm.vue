@@ -153,12 +153,13 @@ const validateForm = () => {
   &__submit {
     @apply p-3 mt-1 border-2 border-[#fff]
     transition-colors bg-none font-semibold
-    tracking-wide sm:p-4 sm:mt-4 sm:text-lg ;
+    tracking-wide sm:p-4 sm:mt-4 sm:text-lg
+    dark:border-dark;
     transition: box-shadow .2s ease-in-out, transform .2s ease-in-out;
 
     &:hover {
       transform: translateY(-4px) translateX(-4px);
-      @apply shadow-4p;
+      @apply shadow-4p dark:shadow-dark;
     }
 
     &.active {

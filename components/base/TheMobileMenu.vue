@@ -32,7 +32,7 @@ const navigate = () => {
 
 <style lang="scss" scoped>
 .mobile-nav {
-  @apply fixed flex pt-[140px] overflow-hidden justify-center right-[-100%] top-[64px] w-screen bg-dark z-[100] sm:hidden;
+  @apply fixed flex pt-[140px] overflow-hidden justify-center right-[-100%] top-[64px] w-screen bg-dark dark:bg-light z-[100] sm:hidden;
   height: calc(100vh - 64px);
   transition: right .6s ease-in-out;
 

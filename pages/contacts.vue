@@ -82,7 +82,7 @@ useHead({
 
 <style lang="scss" scoped>
 .contacts-wrapper {
-  @apply relative max-w-md w-full relative p-3 shadow-4p sm:shadow-8p border-2 border-[#fff] overflow-hidden sm:p-4;
+  @apply relative max-w-md w-full relative p-3 shadow-4p sm:shadow-8p border-2 border-[#fff] dark:border-dark dark:shadow-dark overflow-hidden sm:p-4;
 
   &.active {
     @apply border-green;

@@ -15,6 +15,20 @@ const onSelect = (value:Lang) => {
 const menuHandler = () => {
   useHeaderStore().$patch((state) => state.menuStatus = !state.menuStatus);
 }
+
+const theme = ref(false);
+const themeIcon = ref<string>('light-mode');
+const switchTheme = () => {
+  const body = document.querySelector('body');
+  body?.classList.toggle('dark');
+  theme.value = !theme.value;
+
+  if (theme.value) {
+    themeIcon.value = 'dark-mode';
+  } else {
+    themeIcon.value = 'light-mode';
+  }
+}
 </script>
 
 <template>
@@ -54,6 +68,12 @@ const menuHandler = () => {
             </option>
           </select>
         </li>
+        <li class="flex items-end">
+          <button @click="switchTheme">
+            <nuxt-icon v-if="theme" name="dark-mode" />
+            <nuxt-icon v-else name="light-mode" />
+          </button>
+        </li>
         <li class="sm:hidden">
           <button
             @click="menuHandler"
@@ -77,7 +97,7 @@ const menuHandler = () => {
   transition: transform .3s ease-in-out .6s;
 
   span {
-    @apply block w-[24px] h-[2px] bg-white rounded-[999px];
+    @apply block w-[24px] h-[2px] bg-white dark:bg-dark rounded-[999px];
     transition: transform .3s ease-in-out, width .3s ease-in-out, background-color .9s ease-in-out;
 
     &:first-child, &:last-child {

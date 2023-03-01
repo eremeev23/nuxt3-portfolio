@@ -1,7 +1,8 @@
 <script lang="ts" setup>
-import {IProject} from "~/types";
-import {storeToRefs} from "pinia";
-import {useHeaderStore} from "~/stores/headerStore";
+import { defineProps, computed } from "vue";
+import { storeToRefs } from "pinia";
+import { IProject } from "~/types";
+import { useHeaderStore } from "~/stores/headerStore";
 
 interface IPops {
   project: IProject
@@ -64,6 +65,7 @@ const designedByText = computed(():string => currentLang.value === 'eng' ? 'Desi
       <p class="info-block__title">
         {{ designedByText }} {{ project.designed }}
       </p>
+      <nuxt-icon v-if="project.icon" class="ml-1 mt-0.5" :name="project.icon" filled />
     </div>
   </div>
 </template>
