@@ -1,7 +1,7 @@
 import axios from "axios";
 import { defineStore, storeToRefs } from "pinia";
 import { useHeaderStore } from "~/stores/headerStore";
-import {useGlobalStore} from "~/stores/globalStore";
+import { useGlobalStore } from "~/stores/globalStore";
 
 const { currentLang } = storeToRefs(useHeaderStore());
 const { baseUrl } = storeToRefs(useGlobalStore());
@@ -21,11 +21,8 @@ export const useContactsStore = defineStore('contacts', {
   actions: {
     async CONTACTS_REQUEST() {
       try {
-        await axios
-          .get(`${baseUrl.value}/api/${currentLang.value}/contacts`)
-          .then(({ data }) => {
-            this.contactsInfo = data;
-          })
+        const { data } = await axios.get(`${baseUrl.value}/api/${currentLang.value}/contacts`)
+        this.contactsInfo = data;
       } catch (e) {
         console.log(e);
       }
@@ -33,9 +30,8 @@ export const useContactsStore = defineStore('contacts', {
 
     async FEEDBACK_POST_REQUEST(fd:{}) {
       try {
-        return await axios
-          .post('https://nuxt3-portfolio-2738c-default-rtdb.europe-west1.firebasedatabase.app/messages.json', JSON.stringify(fd))
-          .then(() => true)
+        await axios.post('https://nuxt3-portfolio-2738c-default-rtdb.europe-west1.firebasedatabase.app/messages.json', JSON.stringify(fd))
+        return true;
       } catch (e) {
         return false;
       }

@@ -1,4 +1,4 @@
-import {defineStore, storeToRefs} from 'pinia';
+import { defineStore, storeToRefs } from 'pinia';
 import axios from "axios";
 import { INavItem, IIcon } from "~/types";
 import { useGlobalStore } from "~/stores/globalStore";
@@ -7,7 +7,7 @@ const { baseUrl } = storeToRefs(useGlobalStore());
 
 export type Lang = 'eng' | 'rus';
 
-interface IState {
+interface State {
   navigation: INavItem[] | null;
   icons: IIcon[] | null;
   langs: string[] | null;
@@ -16,7 +16,7 @@ interface IState {
 }
 
 export const useHeaderStore = defineStore('header', {
-  state: ():IState => ({
+  state: (): State => ({
     navigation: null,
     icons: null,
     langs: null,
@@ -27,13 +27,11 @@ export const useHeaderStore = defineStore('header', {
   actions: {
     async HEADER_REQUEST() {
       try {
-        await axios
-          .get(`${baseUrl.value}/api/${this.currentLang}/header`)
-          .then(({ data }) => {
-            this.navigation = data.navigation;
-            this.icons = data.icons;
-            this.langs = data.langs;
-          })
+        const { data } = await axios.get(`${baseUrl.value}/api/${this.currentLang}/header`);
+
+        this.navigation = data.navigation;
+        this.icons = data.icons;
+        this.langs = data.langs;
       } catch (e) {
         console.log(e);
       }

@@ -7,7 +7,7 @@ export default defineNuxtConfig({
     head: {
       title: 'Maksim Eremeev',
       meta: [
-        { name: 'description', content: 'Maksim Eremeev`s site. Frontend developer.' }
+        { name: 'description', content: 'Maksim Eremeev`s site. Frontend developer. Front-end developer.' }
       ],
       htmlAttrs: {
         lang: 'en',
@@ -29,12 +29,24 @@ export default defineNuxtConfig({
     }
   },
 
+  runtimeConfig: {
+    public: {
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://eremeev-dev.vercel.app',
+    }
+  },
+
+  sitemap: {
+    siteUrl: 'https://eremeev-dev.vercel.app',
+    sitemaps: true,
+  },
+
   modules: [
     '@nuxtjs/tailwindcss',
     '@pinia/nuxt',
     'nuxt-icons',
     '@nuxt/image-edge',
-    'nuxt-swiper'
+    'nuxt-swiper',
+    'nuxt-simple-sitemap',
   ],
 
   tailwindcss: {

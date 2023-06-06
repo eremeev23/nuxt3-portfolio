@@ -7,6 +7,10 @@ import { useGlobalStore } from "~/stores/globalStore";
 const { currentLang } = storeToRefs(useHeaderStore());
 const { baseUrl } = storeToRefs(useGlobalStore());
 
+interface State {
+  mainPage: IMainPage;
+}
+
 export interface IMainPage {
   title_text: string | null;
   main_text: string | null;
@@ -17,7 +21,7 @@ export interface IMainPage {
 }
 
 export const useMainPageStore = defineStore('main-page', {
-  state: () => ({
+  state: (): State => ({
     mainPage: {} as IMainPage
   }),
 
@@ -26,12 +30,10 @@ export const useMainPageStore = defineStore('main-page', {
       this.mainPage = {} as IMainPage;
 
       try {
-        await axios
-          .get(`${baseUrl.value}/api/${currentLang.value}/mainPage`)
-          .then(({ data }) => {
-            this.mainPage = data;
-            this.mainPage.career = data.career.sort((a: ICareer, b: ICareer) => a.order - b.order)
-          })
+        const { data } = await axios.get(`${baseUrl.value}/api/${currentLang.value}/mainPage`);
+        this.mainPage = data;
+        this.mainPage.career.title = data.career.title;
+        this.mainPage.career.list = data.career.list?.sort((a: ICareer, b: ICareer) => a.order - b.order)
       } catch (e) {
         console.log(e)
       }

@@ -1,8 +1,16 @@
 import { defineStore } from "pinia";
-const isProd = process.env.NODE_ENV === 'production'
+
+interface State {
+  anyModal: boolean;
+  responseModal: boolean;
+  responseSuccess: boolean;
+  baseUrl: string;
+}
+
+const isProd = process.env.NODE_ENV === 'production';
 
 export const useGlobalStore = defineStore('global', {
-  state: () => ({
+  state: (): State => ({
     anyModal: false,
     responseModal: false,
     responseSuccess: true,
@@ -12,10 +20,7 @@ export const useGlobalStore = defineStore('global', {
   actions: {
     TOGGLE_MODAL(event?: string) {
       this.anyModal = !this.anyModal;
-
-      if (event === 'close') {
-        this.responseModal = false;
-      }
+      if (event === 'close') this.responseModal = false;
     },
 
     TOGGLE_RESPONSE_MODAL() {

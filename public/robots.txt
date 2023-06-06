@@ -1,0 +1,3 @@
+User-agent: *
+Host: https://eremeev-dev.vercel.app/
+Sitemap: https://eremeev-dev.vercel.app/sitemap_index.xml
