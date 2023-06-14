@@ -19,7 +19,7 @@
     "axios": "^1.2.2",
     "nuxt-icons": "^3.0.0",
     "nuxt-swiper": "^0.1.6",
-    "pinia": "^2.0.28",
+    "pinia": "^2.0.4",
     "sass": "^1.57.1",
     "sass-loader": "^13.2.0"
   }
