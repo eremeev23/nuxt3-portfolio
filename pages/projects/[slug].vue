@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-import { useRoute } from "#app";
+import { watch, computed } from "vue";
+import { useRoute, useHead } from "#app";
 import { storeToRefs } from "pinia";
 import { useProjectsStore } from "~/stores/projectsStore";
 import { useHeaderStore } from "~/stores/headerStore";
 import PageTitle from '~/components/global/PageTitle.vue';
 import ProjectContent from '~/components/project/ProjectContent.vue';
-import {useHead} from "#imports";
 import OneProjectSkeleton from "~/components/skeletons/OneProjectSkeleton.vue";
 
 const { slug } = useRoute().params;

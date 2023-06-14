@@ -1,3 +1,5 @@
+import { jsonfy } from "~/utils/jsonfy";
+
 const projects = [
   {
     slug: 'markov',
@@ -174,4 +176,4 @@ const projects = [
   },
 ]
 
-export default defineEventHandler(() => JSON.stringify(projects));
+export default defineEventHandler(() => jsonfy(projects));

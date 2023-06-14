@@ -2,6 +2,7 @@
 import tailwindConfig from "./tailwind.config.ts";
 
 export default defineNuxtConfig({
+  // @ts-ignore
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
     head: {

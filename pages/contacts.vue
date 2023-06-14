@@ -1,10 +1,11 @@
 <script lang="ts" setup>
+import { watch, computed, ref, reactive }  from "vue";
+import { useHead } from "#app";
 import { storeToRefs } from "pinia";
 import { useHeaderStore } from "~/stores/headerStore";
 import { useContactsStore } from "~/stores/contactsStore";
 import FeedbackForm from '~/components/forms/FeedbackForm.vue';
 import ContactsLinksBlock from '~/components/contacts/ContactsLinksBlock.vue';
-import {useHead} from "#imports";
 
 const { contactsInfo } = storeToRefs(useContactsStore());
 const { currentLang } = storeToRefs(useHeaderStore());
@@ -37,6 +38,13 @@ const data = reactive({
 const hiderHandler = (val:boolean) => {
   showForm.value = val;
 }
+
+watch(
+  () => currentLang.value,
+  () => {
+    CONTACTS_REQUEST();
+  }
+)
 
 useHead({
   title: computed(() => `Maksim Eremeev | Contacts`)
@@ -82,7 +90,7 @@ useHead({
 
 <style lang="scss" scoped>
 .contacts-wrapper {
-  @apply relative max-w-md w-full relative p-3 shadow-4p sm:shadow-8p border-2 border-[#fff] dark:border-dark dark:shadow-dark overflow-hidden sm:p-4;
+  @apply max-w-md w-full relative p-3 shadow-4p sm:shadow-8p border-2 border-[#fff] dark:border-dark dark:shadow-dark overflow-hidden sm:p-4;
 
   &.active {
     @apply border-green;

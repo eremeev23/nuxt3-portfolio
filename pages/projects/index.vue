@@ -1,7 +1,8 @@
 <script lang="ts" setup>
-import { computed, useHead } from "#imports";
-import { useProjectsStore } from "~/stores/projectsStore";
+import { watch, computed } from "vue";
+import { useHead } from "#app";
 import { storeToRefs } from "pinia";
+import { useProjectsStore } from "~/stores/projectsStore";
 import { useHeaderStore } from "~/stores/headerStore";
 import PageTitle from "~/components/global/PageTitle.vue";
 import ProjectsList from "~/components/lists/ProjectsList.vue";

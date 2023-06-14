@@ -1,3 +1,5 @@
+import { jsonfy } from "~/utils/jsonfy";
+
 const data = {
   navigation: [
     {
@@ -40,8 +42,13 @@ const data = {
       name: 'Telegram',
       icon: "tg",
       href: "https://t.me/eremeev23"
+    },
+    {
+      name: 'Strava',
+      icon: "strava",
+      href: "https://www.strava.com/athletes/67307390"
     }
   ]
 }
 
-export default defineEventHandler(() => JSON.stringify(data));
+export default defineEventHandler(() => jsonfy(data));

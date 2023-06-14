@@ -8,7 +8,7 @@ const contacts = [
     href: 'eremeevmiami94@icloud.com',
   },
   {
-    title: 'Phone number',
+    title: 'Телефон',
     hrefPref: 'tel:',
     value: '+995 599 389 346',
     href: '+995599389346',
@@ -20,19 +20,19 @@ const contacts = [
     href: 'https://www.linkedin.com/in/maksim-eremeev-6446101a9/',
   },
   {
-    title: 'Github',
+    title: 'Гитхаб',
     hrefPref: '',
     value: '@eremeev23',
     href: 'https://github.com/eremeev23',
   },
   {
-    title: 'Instagram',
+    title: 'Инстаграм',
     hrefPref: '',
     value: '@eremeev23',
     href: 'https://www.instagram.com/eremeev23/',
   },
   {
-    title: 'Telegram',
+    title: 'Телеграм',
     hrefPref: '',
     value: '@eremeev23',
     href: 'https://t.me/eremeev23'
@@ -44,7 +44,7 @@ const contacts = [
     href: 'https://api.whatsapp.com/send/?phone=995599389346&text&type=phone_number&app_absent=0'
   },
   {
-    title: 'Strava',
+    title: 'Страва',
     hrefPref: '',
     value: "strava",
     href: "https://www.strava.com/athletes/67307390"
