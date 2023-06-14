@@ -27,11 +27,8 @@ export const useHeaderStore = defineStore('header', {
   actions: {
     async HEADER_REQUEST() {
       try {
-        const { data } = await axios.get(`https://eremeev-dev.vercel.app/api/${this.currentLang}/header`);
-
-        this.navigation = data.navigation;
-        this.icons = data.icons;
-        this.langs = data.langs;
+        const { data } = await axios.get(`${baseUrl.value}/api/${this.currentLang}/header`);
+        return data;
       } catch (e) {
         console.log(e);
       }

@@ -1,16 +1,17 @@
 <script setup lang="ts">
-import {useHeaderStore} from "~/stores/headerStore";
-import {storeToRefs} from "pinia";
+import { useLazyAsyncData } from "#app";
+import { useHeaderStore } from "~/stores/headerStore";
 
-const { icons } = storeToRefs(useHeaderStore());
+const { HEADER_REQUEST } = useHeaderStore();
+const { data } = useLazyAsyncData(() => HEADER_REQUEST());
 </script>
 
 <template>
-  <div class="sidebar-wrapper fixed left-0 top-0 h-full z-[1] px-6 bg-transparent items-center justify-center">
+  <div v-if="data?.icons?.length" class="sidebar-wrapper fixed left-0 top-0 h-full z-[1] px-6 bg-transparent items-center justify-center">
     <div class="flex flex-col gap-4">
       <a
         class="flex justify-center items-center p-[8px] rounded-[50%] border-2"
-        v-for="item in icons"
+        v-for="item in data.icons"
         :key="item.icon"
         :href="item.href"
         target="_blank"

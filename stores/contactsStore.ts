@@ -21,7 +21,7 @@ export const useContactsStore = defineStore('contacts', {
   actions: {
     async CONTACTS_REQUEST() {
       try {
-        const { data } = await axios.get(`https://eremeev-dev.vercel.app/api/${currentLang.value}/contacts`)
+        const { data } = await axios.get(`${baseUrl.value}/api/${currentLang.value}/contacts`)
         this.contactsInfo = data;
       } catch (e) {
         console.log(e);

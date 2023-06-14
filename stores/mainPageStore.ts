@@ -30,7 +30,7 @@ export const useMainPageStore = defineStore('main-page', {
       this.mainPage = {} as IMainPage;
 
       try {
-        const { data } = await axios.get(`https://eremeev-dev.vercel.app/api/${currentLang.value}/mainPage`);
+        const { data } = await axios.get(`${baseUrl.value}/api/${currentLang.value}/mainPage`);
         this.mainPage = data;
         this.mainPage.career.title = data.career.title;
         this.mainPage.career.list = data.career.list?.sort((a: ICareer, b: ICareer) => a.order - b.order)

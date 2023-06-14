@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import {Lang, useHeaderStore} from "~/stores/headerStore";
 import {storeToRefs} from "pinia";
+import {useLazyAsyncData} from "#app";
 
-const { navigation, langs, menuStatus } = storeToRefs(useHeaderStore());
+const { menuStatus } = storeToRefs(useHeaderStore());
 const { HEADER_REQUEST, CHANGE_LANG } = useHeaderStore();
 
-HEADER_REQUEST();
+const { data, refresh } = useLazyAsyncData(() => HEADER_REQUEST());
 
 const onSelect = (value:Lang) => {
   CHANGE_LANG(value);
@@ -38,10 +39,10 @@ const switchTheme = () => {
         EREME{D}EV
       </nuxt-link>
 
-      <ul class="flex items-center gap-4 sm:gap-8">
+      <ul v-if="data?.navigation?.length" class="flex items-center gap-4 sm:gap-8">
         <li
           class="hidden sm:block"
-          v-for="item in navigation"
+          v-for="item in data.navigation"
           :key="item.id"
         >
           <nuxt-link
@@ -60,7 +61,7 @@ const switchTheme = () => {
             class="text-[14px] sm:text-base"
           >
             <option
-              v-for="(lang, k) in langs"
+              v-for="(lang, k) in data.langs"
               :key="k"
               :value="lang"
             >

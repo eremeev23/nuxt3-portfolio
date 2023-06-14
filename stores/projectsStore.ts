@@ -16,7 +16,7 @@ export const useProjectsStore = defineStore('projects', {
   actions: {
     async PROJECTS_REQUEST() {
       try {
-        const { data } = await axios.get(`https://eremeev-dev.vercel.app/api/${currentLang.value}/projects`);
+        const { data } = await axios.get(`${baseUrl.value}/api/${currentLang.value}/projects`);
         this.projects = data;
       } catch (e) {
         console.log(e);
