@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@nuxtjs/tailwindcss": "^6.7.0",
-    "@pinia/nuxt": "^0.4.6",
+    "@pinia/nuxt": "^0.4.11",
     "@vercel/analytics": "^0.1.8",
     "axios": "^1.2.2",
     "nuxt-icons": "^3.0.0",
