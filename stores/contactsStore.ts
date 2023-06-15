@@ -13,7 +13,7 @@ export interface IContacts {
   href: string
 }
 
-export const useContactsStore = defineStore('contacts', {
+export const useContactsStore = defineStore('contactsStore', {
   state: () => ({
     contactsInfo: [] as IContacts[]
   }),

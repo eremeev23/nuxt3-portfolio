@@ -15,7 +15,7 @@ interface State {
   menuStatus: boolean;
 }
 
-export const useHeaderStore = defineStore('header', {
+export const useHeaderStore = defineStore('headerStore', {
   state: (): State => ({
     navigation: null,
     icons: null,

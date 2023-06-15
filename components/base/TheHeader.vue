@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import {Lang, useHeaderStore} from "~/stores/headerStore";
-import {storeToRefs} from "pinia";
-import {useLazyAsyncData} from "#app";
+import { useLazyAsyncData } from "#app";
+import { storeToRefs } from "pinia";
+import { Lang, useHeaderStore } from "~/stores/headerStore";
 
 const { menuStatus } = storeToRefs(useHeaderStore());
 const { HEADER_REQUEST, CHANGE_LANG } = useHeaderStore();
 
-const { data, refresh } = useLazyAsyncData(() => HEADER_REQUEST());
+const { data } = useLazyAsyncData(() => HEADER_REQUEST());
 
 const onSelect = (value:Lang) => {
   CHANGE_LANG(value);
@@ -53,7 +53,7 @@ const switchTheme = () => {
             <span class="text-blue">#</span><span>{{ item.text }}</span>
           </nuxt-link>
         </li>
-        <li v-if="langs">
+        <li v-if="data.langs">
           <select
             @change="onSelect($event.target.value)"
             name="lang"

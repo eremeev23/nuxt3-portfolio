@@ -20,7 +20,7 @@ export interface IMainPage {
   career: IPageBlock<ICareer>
 }
 
-export const useMainPageStore = defineStore('main-page', {
+export const useMainPageStore = defineStore('mainPageStore', {
   state: (): State => ({
     mainPage: {} as IMainPage
   }),

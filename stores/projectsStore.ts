@@ -7,7 +7,7 @@ import { useGlobalStore } from "~/stores/globalStore";
 const { currentLang } = storeToRefs(useHeaderStore());
 const { baseUrl } = storeToRefs(useGlobalStore());
 
-export const useProjectsStore = defineStore('projects', {
+export const useProjectsStore = defineStore('projectsStore', {
   state: () => ({
     projects: [] as IProject[],
     project: {} as IProject

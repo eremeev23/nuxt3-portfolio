@@ -14,7 +14,7 @@ export const useGlobalStore = defineStore('global', {
     anyModal: false,
     responseModal: false,
     responseSuccess: true,
-    baseUrl: isProd ? 'https://eremeev-dev.vercel.app' : 'http://localhost:3000'
+    baseUrl: isProd ? 'https://eremeev-dev.vercel.app' : 'http://localhost:5001'
   }),
 
   actions: {
