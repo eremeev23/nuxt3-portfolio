@@ -1,9 +1,6 @@
-import { defineStore } from 'pinia';
+import {defineStore, storeToRefs} from 'pinia';
 import axios from "axios";
 import { INavItem, IIcon } from "~/types";
-// import { useGlobalStore } from "~/stores/globalStore";
-
-// const { baseUrl } = storeToRefs(useGlobalStore());
 
 export type Lang = 'eng' | 'rus';
 
@@ -27,7 +24,7 @@ export const useHeaderStore = defineStore('headerStore', {
   actions: {
     async HEADER_REQUEST() {
       try {
-        const { data } = await axios.get(`https://eremeev-dev.vercel.app/api/${this.currentLang}/header`);
+        const { data } = await axios.get(`/api/${this.currentLang}/header`);
         return data;
       } catch (e) {
         console.log(e);

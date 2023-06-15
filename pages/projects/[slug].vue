@@ -15,18 +15,18 @@ const { currentLang } = storeToRefs(useHeaderStore());
 
 SET_PROJECT(slug);
 
-if (project.value) {
+if (project.value !== null) {
   useHead({
-    title: computed(() => `Maksim Eremeev | ${project?.value.title}`)
+    title: computed(() => `Maksim Eremeev | ${project.value?.title}`)
   })
 } else {
-  PROJECTS_REQUEST()
+  PROJECTS_REQUEST('eng')
     .then(() => SET_PROJECT(slug))
-      .then(() => {
-        useHead({
-          title: computed(() => `Maksim Eremeev | ${project?.value.title}`)
-        })
+    .then(() => {
+      useHead({
+        title: computed(() => `Maksim Eremeev | ${project.value?.title}`)
       })
+    })
 }
 
 watch(

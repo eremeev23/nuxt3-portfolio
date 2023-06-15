@@ -1,10 +1,6 @@
 import axios from "axios";
 import { defineStore, storeToRefs } from "pinia";
 import { useHeaderStore } from "~/stores/headerStore";
-// import { useGlobalStore } from "~/stores/globalStore";
-
-const { currentLang } = storeToRefs(useHeaderStore());
-// const { baseUrl } = storeToRefs(useGlobalStore());
 
 export interface IContacts {
   title: string,
@@ -21,7 +17,8 @@ export const useContactsStore = defineStore('contactsStore', {
   actions: {
     async CONTACTS_REQUEST() {
       try {
-        const { data } = await axios.get(`https://eremeev-dev.vercel.app/api/${currentLang.value}/contacts`)
+        const { currentLang } = storeToRefs(useHeaderStore());
+        const { data } = await axios.get(`/api/${currentLang.value}/contacts`)
         this.contactsInfo = data;
       } catch (e) {
         console.log(e);

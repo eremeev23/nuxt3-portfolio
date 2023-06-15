@@ -2,29 +2,38 @@ import { defineStore, storeToRefs } from "pinia";
 import axios from "axios";
 import { IProject } from "~/types";
 import { useHeaderStore } from "~/stores/headerStore";
-// import { useGlobalStore } from "~/stores/globalStore";
 
-const { currentLang } = storeToRefs(useHeaderStore());
-// const { baseUrl } = storeToRefs(useGlobalStore());
+interface State {
+  projects: IProject[],
+  project: null | IProject
+}
 
 export const useProjectsStore = defineStore('projectsStore', {
-  state: () => ({
-    projects: [] as IProject[],
-    project: {} as IProject
+  state: (): State => ({
+    projects: [],
+    project: null
   }),
 
   actions: {
-    async PROJECTS_REQUEST() {
+    async PROJECTS_REQUEST(lang?: string) {
       try {
-        const { data } = await axios.get(`https://eremeev-dev.vercel.app/api/${currentLang.value}/projects`);
-        this.projects = data;
+        if (lang) {
+          const { data } = await axios.get(`/api/${lang}/projects`);
+          this.projects = data;
+        } else {
+          const { currentLang } = storeToRefs(useHeaderStore());
+          const { data } = await axios.get(`/api/${currentLang.value}/projects`);
+          this.projects = data;
+        }
       } catch (e) {
         console.log(e);
       }
     },
 
     SET_PROJECT(slug:string | string[]) {
-      this.project = this.projects.find((item:IProject) => item.slug === slug) || {} as IProject;
+      if (this.projects?.length) {
+        this.project = this.projects.find((item:IProject) => item.slug === slug) || null;
+      }
     }
   }
 })
