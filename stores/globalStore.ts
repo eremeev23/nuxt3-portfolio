@@ -7,14 +7,14 @@ interface State {
   baseUrl: string;
 }
 
-const isProd = process.env.NODE_ENV === 'production';
+// const isProd = process.env.NODE_ENV === 'production';
 
 export const useGlobalStore = defineStore('globalStore', {
   state: (): State => ({
     anyModal: false,
     responseModal: false,
     responseSuccess: true,
-    baseUrl: isProd ? 'https://eremeev-dev.vercel.app' : 'http://localhost:5001'
+    baseUrl: 'https://eremeev-dev.vercel.app'
   }),
 
   actions: {

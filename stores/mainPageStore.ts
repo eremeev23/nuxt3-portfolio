@@ -2,10 +2,10 @@ import { defineStore, storeToRefs } from "pinia";
 import axios from "axios";
 import { ICareer, IPageBlock, ISkill } from "~/types";
 import { useHeaderStore } from "~/stores/headerStore";
-import { useGlobalStore } from "~/stores/globalStore";
+// import { useGlobalStore } from "~/stores/globalStore";
 
 const { currentLang } = storeToRefs(useHeaderStore());
-const { baseUrl } = storeToRefs(useGlobalStore());
+// const { baseUrl } = storeToRefs(useGlobalStore());
 
 interface State {
   mainPage: IMainPage;
@@ -30,7 +30,7 @@ export const useMainPageStore = defineStore('mainPageStore', {
       this.mainPage = {} as IMainPage;
 
       try {
-        const { data } = await axios.get(`${baseUrl.value}/api/${currentLang.value}/mainPage`);
+        const { data } = await axios.get(`https://eremeev-dev.vercel.app/api/${currentLang.value}/mainPage`);
         this.mainPage = data;
         this.mainPage.career.title = data.career.title;
         this.mainPage.career.list = data.career.list?.sort((a: ICareer, b: ICareer) => a.order - b.order)

@@ -2,10 +2,10 @@ import { defineStore, storeToRefs } from "pinia";
 import axios from "axios";
 import { IProject } from "~/types";
 import { useHeaderStore } from "~/stores/headerStore";
-import { useGlobalStore } from "~/stores/globalStore";
+// import { useGlobalStore } from "~/stores/globalStore";
 
 const { currentLang } = storeToRefs(useHeaderStore());
-const { baseUrl } = storeToRefs(useGlobalStore());
+// const { baseUrl } = storeToRefs(useGlobalStore());
 
 export const useProjectsStore = defineStore('projectsStore', {
   state: () => ({
@@ -16,7 +16,7 @@ export const useProjectsStore = defineStore('projectsStore', {
   actions: {
     async PROJECTS_REQUEST() {
       try {
-        const { data } = await axios.get(`${baseUrl.value}/api/${currentLang.value}/projects`);
+        const { data } = await axios.get(`https://eremeev-dev.vercel.app/api/${currentLang.value}/projects`);
         this.projects = data;
       } catch (e) {
         console.log(e);
