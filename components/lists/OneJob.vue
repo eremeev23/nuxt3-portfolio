@@ -25,7 +25,7 @@ const props = defineProps<IProps>();
         | {{ job.from }} - {{ job.to }}
       </span>
     </div>
-    <p class="max-w-[640px]">
+    <p>
       {{ job.summary }}
     </p>
     <ul
@@ -41,9 +41,3 @@ const props = defineProps<IProps>();
     </ul>
   </div>
 </template>
-
-<style scoped>
-li {
-
-}
-</style>

@@ -41,13 +41,17 @@ const data = {
         from: "december'22",
         to: "present",
         role: "middle-frontend-developer",
-        summary: "Developing marketplace on Nuxt3 with TypeScript and Pinia as a state manager.",
+        summary: "The project involves the development and ongoing maintenance of a clothing marketplace, along with supplier and administrator panels. It has been built using cutting-edge technologies, specifically Nuxt3/Vue3 + Typescript. For efficient state management, the project utilizes Pinia. Styling is achieved through a combination of SCSS and Tailwind, while UI components are implemented using Element-plus.\n" +
+          "A key feature of this project is its modular structure, which enhances scalability and maintainability. Several tasks have already been successfully completed as part of this endeavor, including:\n" +
+          "With such comprehensive development and accomplished tasks, this project is poised to deliver a robust, efficient, and user-friendly clothing marketplace platform.",
         list: [
-          "code optimization",
-          "working in a front-end team",
-          "refactoring and reviewing code",
-          "discussing business logic of the project",
-          "writing tech documentations"
+          "code refactoring and thorough code reviews to ensure high-quality and optimized code.",
+          "creation of modules encompassing both UI components and essential business logic.",
+          "implementation of responsive design principles, ensuring seamless user experiences across various devices.",
+          "optimal loading time achieved through performance optimizations.",
+          "regularly updating library versions to stay up-to-date with the latest advancements and improvements.",
+          "close collaboration with the backend team to ensure smooth integration and communication between frontend and backend functionalities.",
+          "introduction of new and innovative functionalities to enhance the overall user experience.",
         ],
         order: 1
       },

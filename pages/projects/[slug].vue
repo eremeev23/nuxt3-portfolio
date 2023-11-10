@@ -37,7 +37,7 @@ watch(
   }
 )
 
-const pageTitleText = computed(() => project.value.title.replaceAll(' ', '-'));
+const pageTitleText = computed(() => project.value?.title.replaceAll(' ', '-'));
 const backButtonText = computed(():string => currentLang.value === 'eng' ? 'back to all projects' : 'назад ко всем проектам');
 
 </script>

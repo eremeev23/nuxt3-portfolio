@@ -8,7 +8,7 @@ const projects = [
     image: 'markov-main.jpg',
     icon: 'grokhotov',
     caption: 'Сайт для стоматологии',
-    link: 'https://markov.grokhotov.ru',
+    link: 'https://markovstom.ru/',
     repository: null,
     commerce: true,
     slides: [

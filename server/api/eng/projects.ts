@@ -7,8 +7,8 @@ const projects = [
     stack: ['Nuxt', 'Typescript', 'Scss', 'Vuex', 'GSAP', 'axios'],
     image: 'markov-main.jpg',
     icon: 'grokhotov',
-    caption: 'Site for dental clinic.',
-    link: 'https://markov.grokhotov.ru',
+    caption: 'Website for a dental clinic.',
+    link: 'https://markovstom.ru/',
     repository: null,
     commerce: true,
     slides: [
