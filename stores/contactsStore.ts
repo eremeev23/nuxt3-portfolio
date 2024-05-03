@@ -2,7 +2,7 @@ import axios from "axios";
 import { defineStore, storeToRefs } from "pinia";
 import { useHeaderStore } from "~/stores/headerStore";
 
-export interface IContacts {
+export interface Contacts {
   title: string,
   hrefPref: string,
   value: string,
@@ -11,7 +11,7 @@ export interface IContacts {
 
 export const useContactsStore = defineStore('contactsStore', {
   state: () => ({
-    contactsInfo: [] as IContacts[]
+    contactsInfo: [] as Contacts[]
   }),
 
   actions: {

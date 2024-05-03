@@ -1,12 +1,14 @@
-import {defineStore, storeToRefs} from 'pinia';
 import axios from "axios";
-import { INavItem, IIcon } from "~/types";
+import { defineStore, storeToRefs } from 'pinia';
+
+// Types
+import { NavItem, Icon } from "~/types";
 
 export type Lang = 'eng' | 'rus';
 
 interface State {
-  navigation: INavItem[] | null;
-  icons: IIcon[] | null;
+  navigation: NavItem[] | null;
+  icons: Icon[] | null;
   langs: string[] | null;
   currentLang: Lang;
   menuStatus: boolean;

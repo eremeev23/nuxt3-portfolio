@@ -1,9 +1,13 @@
 <script lang="ts" setup>
 import { ComputedRef } from "vue";
 import { storeToRefs } from "pinia";
+
+// Stores
 import { useContactsStore } from "~/stores/contactsStore";
 import { useHeaderStore } from "~/stores/headerStore";
 import { useGlobalStore } from "~/stores/globalStore";
+
+// Components
 import InputBlock from '~/components/forms/InputBlock.vue';
 import TextareaBlock from '~/components/forms/TextareaBlock.vue';
 
@@ -15,17 +19,18 @@ interface IInput {
   error: boolean;
 }
 
-interface IProps {
+const props = defineProps<{
   formActive: boolean;
   formValid: boolean;
-}
+}>()
 
+const emits = defineEmits(['activeStatus', 'validStatus']);
+
+// Stores
 const { currentLang } = storeToRefs(useHeaderStore());
 const { FEEDBACK_POST_REQUEST } = useContactsStore();
 
-const props = defineProps<IProps>()
-const emits = defineEmits(['activeStatus', 'validStatus']);
-
+// Layout
 const data = reactive({
   inputs: [
     {
@@ -54,8 +59,10 @@ const data = reactive({
 
 const submitButtonText = computed(() => currentLang.value === 'eng' ? 'SEND' : 'ОТПРАВИТЬ')
 
-const validateInput = (value:string, input:IInput) => {
+// Functions
+function validateInput(value: string, input: IInput) {
   const i = data.inputs.indexOf(input);
+
   emits('activeStatus', true);
 
   switch (input.type) {
@@ -70,21 +77,28 @@ const validateInput = (value:string, input:IInput) => {
       break;
   }
 
-  if (data.inputs.some(item => item.error) || data.inputs.some(item => !item.value.length) || data.textareaData.error || !data.textareaData.value.length) {
+  if (
+    data.inputs.some(item => item.error) ||
+    data.inputs.some(item => !item.value.length) ||
+    data.textareaData.error ||
+    !data.textareaData.value.length
+  ) {
     emits('validStatus', true);
   } else {
     emits('validStatus', false);
   }
 }
 
-const validateForm = () => {
+function validateForm() {
   // VALIDATING FORM
   data.inputs.forEach(input => validateInput(input.value, input));
+
   validateInput(data.textareaData.value, data.textareaData);
 
   // FORM REQUEST
   const date = new Date();
-  if (data.inputs.every(input => !input.error)) {
+
+  if (data.inputs.every(input => !input.error) && !data.textareaData.error) {
     const fd = {
       date: date.toLocaleString('ru-RU'),
       email: data.inputs[0].value,
@@ -116,16 +130,20 @@ const validateForm = () => {
     class="feedback-form"
     @submit.prevent="validateForm"
   >
-    <InputBlock
+    <!--  Email and name inputs  -->
+    <template
       v-for="inputData in data.inputs"
       :key="inputData.name"
-      :input="inputData"
-      :model-value="inputData.value"
-      :start-value="inputData.value"
-      v-model="inputData.value"
-      @input="validateInput($event.target.value, inputData)"
-      :error="inputData.error"
-    />
+    >
+      <InputBlock
+        v-model="inputData.value"
+        :input="inputData"
+        :error="inputData.error"
+        @input="validateInput($event.target.value, inputData)"
+      />
+    </template>
+
+    <!--  Text area  -->
     <TextareaBlock
       :area="data.textareaData"
       :model-value="data.textareaData.value"
@@ -134,6 +152,8 @@ const validateForm = () => {
       v-model="data.textareaData.value"
       @input="validateInput($event.target.value, data.textareaData)"
     />
+
+    <!--  Submit button  -->
     <button
       class="feedback-form__submit"
       :class="{'error': formActive && formValid, 'active': formActive && !formValid}"

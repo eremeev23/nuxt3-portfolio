@@ -1,5 +1,7 @@
 // @ts-ignore
 import tailwindConfig from "./tailwind.config.ts";
+// import { LOCALE_DEFAULT, LOCALES } from "./configs/i18n/messages";
+// import { PAGES_MAP } from "./i18n.config"
 
 export default defineNuxtConfig({
   // @ts-ignore
@@ -30,6 +32,10 @@ export default defineNuxtConfig({
     }
   },
 
+  devtools: {
+    enabled: false
+  },
+
   runtimeConfig: {
     public: {
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://eremeev-dev.vercel.app',
@@ -48,7 +54,17 @@ export default defineNuxtConfig({
     '@nuxt/image-edge',
     'nuxt-swiper',
     'nuxt-simple-sitemap',
+    // '@nuxtjs/i18n',
   ],
+  // @ts-ignore
+  // i18n: {
+  //   strategy: 'no_prefix',
+  //   skipSettingLocaleOnNavigate: true,
+  //   defaultLocale: LOCALE_DEFAULT,
+  //   detectBrowserLanguage: false,
+  //   customRoutes: 'page',
+  //   locales: LOCALES,
+  // },
 
   tailwindcss: {
     cssPath: '~/assets/style/tailwind.css',

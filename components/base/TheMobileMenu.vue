@@ -1,10 +1,13 @@
 <script lang="ts" setup>
-import {storeToRefs} from "pinia";
-import {useHeaderStore} from "~/stores/headerStore";
+import { storeToRefs } from "pinia";
+
+// Stores
+import { useHeaderStore } from "~/stores/headerStore";
 
 const { menuStatus, navigation } = storeToRefs(useHeaderStore());
 
-const navigate = () => {
+// Functions
+function navigate() {
   useHeaderStore().$patch((state) => state.menuStatus = !state.menuStatus);
 }
 </script>

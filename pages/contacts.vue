@@ -2,26 +2,34 @@
 import { watch, computed, ref, reactive }  from "vue";
 import { useHead } from "#app";
 import { storeToRefs } from "pinia";
+
+// Stores
 import { useHeaderStore } from "~/stores/headerStore";
 import { useContactsStore } from "~/stores/contactsStore";
+
+// Components
 import FeedbackForm from '~/components/forms/FeedbackForm.vue';
 import ContactsLinksBlock from '~/components/contacts/ContactsLinksBlock.vue';
 
+// Stores
 const { contactsInfo } = storeToRefs(useContactsStore());
 const { currentLang } = storeToRefs(useHeaderStore());
 
 const { CONTACTS_REQUEST } = useContactsStore();
+
+// Data fetching
 CONTACTS_REQUEST();
 
-const pageTitleText = computed(():string => currentLang.value === 'eng' ? 'CONTACTS' : 'КОНТАКТЫ');
-const formTitle = computed(():string => {
+// Layout
+const pageTitleText = computed(() => currentLang.value === 'eng' ? 'CONTACTS' : 'КОНТАКТЫ');
+const formTitle = computed(() => {
   if (currentLang.value === 'eng') {
     return showForm.value ? 'CONTACT ME' : 'LINKS'
   } else {
     return showForm.value ? 'СВЯЗАТЬСЯ СО МНОЙ' : 'ССЫЛКИ'
   }
 })
-const buttonText = computed(():string => {
+const buttonText = computed(() => {
   if (currentLang.value === 'eng') {
     return showForm.value ? 'OTHER WAYS' : 'BACK TO FORM'
   } else {
@@ -30,6 +38,7 @@ const buttonText = computed(():string => {
 })
 
 const showForm = ref(true);
+
 const data = reactive({
   formValid: true,
   formActive: false
@@ -46,6 +55,7 @@ watch(
   }
 )
 
+// Page title
 useHead({
   title: computed(() => `Maksim Eremeev | Contacts`)
 })

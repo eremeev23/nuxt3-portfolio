@@ -1,16 +1,21 @@
 <script lang="ts" setup>
-import { defineProps, computed } from "vue";
+import { computed } from "vue";
 import { storeToRefs } from "pinia";
-import { IProject } from "~/types";
+
+// Types
+import { Project } from "~/types";
+
+// Stores
 import { useHeaderStore } from "~/stores/headerStore";
 
-interface IPops {
-  project: IProject
-}
+defineProps<{
+  project: Project
+}>();
 
+// Store
 const { currentLang } = storeToRefs(useHeaderStore());
 
-const props = defineProps<IPops>();
+// Layout
 const domainText = computed(():string => currentLang.value === 'eng' ? 'Project domain:' : 'Сайт проекта:');
 const repositoryText = computed(():string => currentLang.value === 'eng' ? 'Project repository:' : 'Репозиторий проекта:');
 const stackText = computed(():string => currentLang.value === 'eng' ? 'Project stack:' : 'Стэк проекта:');
@@ -20,52 +25,67 @@ const designedByText = computed(():string => currentLang.value === 'eng' ? 'Desi
 
 <template>
   <div class="project-content__info">
+    <!--  Project URL  -->
     <div class="project-content__info-block info-block">
       <p class="info-block__title">
         {{ domainText }}
       </p>
+
       <a :href="project.link" target="_blank">
         {{ project.link }}
       </a>
     </div>
+
+    <!--  Repo url  -->
     <div class="project-content__info-block info-block">
       <p class="info-block__title">
         {{ repositoryText }}
       </p>
+
       <a v-if="project.repository" :href="project.repository" target="_blank">
         {{ project.repository }}
       </a>
+
       <p v-else class="text-red">
         NDA
       </p>
     </div>
+
+    <!--  Stack  -->
     <div class="project-content__info-block info-block info-block_col">
       <p class="info-block__title">
         {{ stackText }}
       </p>
+
       <div class="flex flex-wrap gap-2">
-          <span
-              class="tech"
-              v-for="(tech, i) in project.stack"
-              :key="i"
-          >
-            {{ tech }}
-          </span>
+        <span
+          class="tech"
+          v-for="(tech, i) in project.stack"
+          :key="i"
+        >
+          {{ tech }}
+        </span>
       </div>
     </div>
+
+    <!--  Project description  -->
     <div class="project-content__info-block info-block info-block_col">
       <p class="info-block__title">
         {{ descriptionText }}
       </p>
+
       <p>
         {{ project.description }}
       </p>
     </div>
-    <div class="project-content__info-block info-block ">
+
+    <!--  Designed by  -->
+    <div class="project-content__info-block info-block">
       <p class="info-block__title">
         {{ designedByText }} {{ project.designed }}
       </p>
-      <nuxt-icon v-if="project.icon" class="ml-1 mt-0.5" :name="project.icon" filled />
+
+      <nuxt-icon v-if="project.icon" class="mt-0.5 text-xl" :name="project.icon" filled />
     </div>
   </div>
 </template>

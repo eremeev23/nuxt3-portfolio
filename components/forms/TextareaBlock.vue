@@ -15,6 +15,7 @@ interface IPops {
 const props = defineProps<IPops>();
 const emits = defineEmits(['update:modelValue'])
 
+// Layout
 const activeArea = ref(false);
 const focusArea = ref(false);
 
@@ -33,14 +34,14 @@ const areaValue = computed({
   <div class="textarea-block">
     <textarea
         v-model="areaValue"
-        id="textarea"
         class="textarea-block__textarea"
         :class="{'active':activeArea || areaValue, 'error': error, 'focus': focusArea}"
         :name="area.name"
-        :id="area.name"
+        :id="`textarea_${area.name}`"
         @focus="focusArea = true"
         @blur="focusArea = false"
-    ></textarea>
+    />
+
     <label class="textarea-block__label" :for="area.name">
       {{ area.label }}
     </label>

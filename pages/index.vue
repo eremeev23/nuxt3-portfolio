@@ -1,68 +1,75 @@
 <script setup lang="ts">
 import { watch } from "vue";
-import { useMainPageStore } from "~/stores/mainPageStore";
 import { storeToRefs } from "pinia";
+
+// Stores
+import { IMainPage, useMainPageStore } from "~/stores/mainPageStore";
 import { useHeaderStore } from "~/stores/headerStore";
+
+// Components
 import MainPageSkeleton from "~/components/skeletons/MainPageSkeleton.vue";
 import BorderedSpan from "~/components/global/BorderedSpan.vue";
 import PagesSecTitle from "~/components/global/PagesSecTitle.vue";
 import SkillsList from "~/components/lists/SkillsList.vue";
 import OneJob from "~/components/lists/OneJob.vue";
 
-const { mainPage } = storeToRefs(useMainPageStore());
+// Stores
 const { currentLang } = storeToRefs(useHeaderStore());
-const { MAIN_PAGE_REQUEST } = useMainPageStore();
-MAIN_PAGE_REQUEST();
+const { fetchMainData } = useMainPageStore();
+
+// Layout
+const data = ref<IMainPage | null>(await fetchMainData())
 
 watch(
   () => currentLang.value,
-  () => {
-    MAIN_PAGE_REQUEST();
+  async () => {
+    data.value = await fetchMainData();
   }
 )
 </script>
 
 <template>
   <div>
-    <main v-if="mainPage.main_text">
+    <main v-if="data && data.main_text">
       <section class="flex items-center flex-col gap-10 page-section lg:flex-row lg:gap-4">
         <div class="flex-[2]">
           <h1 class="mail-title">
-            {{ mainPage.title_text }}
+            {{ data.title_text }}
           </h1>
-          <p class="page-section__text text-sm lg:text-base" v-html="mainPage.main_text"></p>
+          <p class="page-section__text text-sm lg:text-base" v-html="data.main_text"></p>
         </div>
-        <div class="hidden flex-none h-[420px] flex justify-center lg:block lg:flex-1">
+        <div class="flex-none h-[420px] flex justify-center lg:block lg:flex-1">
           <nuxt-img
             class="max-h-full h-full"
-            :src="`/images/${mainPage.photo}`"
+            :src="`/images/${data.photo}`"
             alt="It's me"
             preset="default"
             preload
           />
         </div>
       </section>
-      <section v-if="mainPage.skills && mainPage.skills.title" class="page-section">
-        <pages-sec-title>{{ mainPage.skills?.title }}</pages-sec-title>
+      <section v-if="data.skills && data.skills.title" class="page-section">
+        <pages-sec-title>{{ data.skills?.title }}</pages-sec-title>
         <SkillsList
-          :list="mainPage.skills?.list"
+          v-if="data.skills?.list?.length"
+          :list="data.skills.list"
         />
       </section>
-      <section v-if="mainPage.skills && mainPage.skills.title" class="page-section">
-        <pages-sec-title>{{ mainPage.career?.title }}</pages-sec-title>
+      <section v-if="data.career && data.skills?.title" class="page-section">
+        <pages-sec-title>{{ data.career?.title }}</pages-sec-title>
         <div class="flex flex-col gap-8">
           <OneJob
-            v-for="job in mainPage.career?.list"
+            v-for="job in data.career?.list"
             :key="job.id"
             :job="job"
           />
         </div>
       </section>
-      <section v-if="mainPage.facts && mainPage.facts.title" class="page-section">
-        <pages-sec-title>{{ mainPage.facts?.title }}</pages-sec-title>
+      <section v-if="data.facts?.title" class="page-section">
+        <pages-sec-title>{{ data.facts?.title }}</pages-sec-title>
         <div class="flex gap-2 flex-wrap sm:gap-4">
           <bordered-span
-              v-for="(fact, i) in mainPage.facts?.list"
+              v-for="(fact, i) in data.facts?.list"
               :key="i"
           >
             {{ fact }}

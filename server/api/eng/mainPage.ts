@@ -4,14 +4,14 @@ const age = new Date().getFullYear() - new Date("10.04.1994").getFullYear();
 
 const data = {
   title_text: 'Hi! My name is Maksim and I am a frontend developer',
-  main_text: "I have a few years of experience working in a web studio as a front-end developer. In this role, I have had the opportunity to work on a wide range of projects for a variety of clients, including small businesses, startups, and large corporations. I have honed my skills in HTML, CSS, and JavaScript, and have become proficient in using Vue to build dynamic and responsive user interfaces.<br><br> I have also gained valuable experience working in a team environment, collaborating with designers, back-end developers, and project managers to deliver high-quality web applications on time and within budget. Overall, my experience in a web studio has provided me with a strong foundation in front-end development and has given me the skills and confidence to tackle any project that comes my way.",
+  main_text: "I have a few years of experience working in a web studio and in a product company as a front-end developer. In this role, I have had the opportunity to work on a wide range of projects for a variety of clients, including small businesses, startups, and large corporations. I have honed my skills in HTML, CSS, and JavaScript, and have become proficient in using Vue to build dynamic and responsive user interfaces.<br><br> I have also gained valuable experience working in a team environment, collaborating with designers, back-end developers, and project managers to deliver high-quality web applications on time and within budget. Overall, my experience in a web studio has provided me with a strong foundation in front-end development and has given me the skills and confidence to tackle any project that comes my way.",
   photo: "me.png",
   skills: {
     title: 'skills',
     list: [
       {
         title: "Languages",
-        list: ["Javascript", "Typescript"]
+        list: ["JavaScript", "TypeScript"]
       },
       {
         title: "Frameworks",
@@ -19,7 +19,7 @@ const data = {
       },
       {
         title: "Styles",
-        list: ["CSS", "SCSS", "Tailwind", "Styled Components"]
+        list: ["CSS", "SCSS", "Tailwind", "Styled Components", "UnoCSS"]
       },
       {
         title: "State managers",
@@ -27,7 +27,7 @@ const data = {
       },
       {
         title: "Others",
-        list: ["Webpack", "Vite", "GIT", "REST API", "Pug", "Figma"]
+        list: ["Webpack", "Vite", "GIT", "REST API", "Figma"]
       }
     ]
   },
@@ -35,11 +35,27 @@ const data = {
     title: "career",
     list: [
       {
+        id: 3,
+        title: "Backstage technology (Czech Republic)",
+        link: "https://backtech.cz/",
+        from: "november'23",
+        to: "present",
+        role: "middle-frontend-developer",
+        summary: "The project realizes recording, monitoring and reporting of unsettled monetary obligations in B2G and G2B domain which includes around 300K private companies and all public companies and has more then 100K users. This is highly critical government service with highest expectations and backbone of local economy control. It has been built using Nuxt3 + Typescript, UNOCss is used for styles. For state management - Pinia. This experience marks my inaugural venture into an international team, with the majority of its members based in the Czech Republic.",
+        list: [
+          "developing new functionality.",
+          "implementation of responsive design principles.",
+          "work in international team.",
+          "optimal loading time achieved through performance optimizations.",
+        ],
+        order: 1
+      },
+      {
         id: 2,
         title: "Plenexy",
         link: "https://plenexy.ru/",
         from: "december'22",
-        to: "present",
+        to: "november'23",
         role: "middle-frontend-developer",
         summary: "The project involves the development and ongoing maintenance of a clothing marketplace, along with supplier and administrator panels. It has been built using cutting-edge technologies, specifically Nuxt3/Vue3 + Typescript. For efficient state management, the project utilizes Pinia. Styling is achieved through a combination of SCSS and Tailwind, while UI components are implemented using Element-plus.\n" +
           "A key feature of this project is its modular structure, which enhances scalability and maintainability. Several tasks have already been successfully completed as part of this endeavor, including:\n" +
@@ -53,7 +69,7 @@ const data = {
           "close collaboration with the backend team to ensure smooth integration and communication between frontend and backend functionalities.",
           "introduction of new and innovative functionalities to enhance the overall user experience.",
         ],
-        order: 1
+        order: 2
       },
       {
         id: 1,
@@ -72,7 +88,7 @@ const data = {
           "3 months leading frontend team",
           "writing tech documentations"
         ],
-        order: 2
+        order: 3
       },
       {
         id: 0,
@@ -92,7 +108,7 @@ const data = {
       "Was a railways worker",
       "Favorite sport is basketball",
       "Was born in Russia",
-      "Live in Georgia",
+      "Live in Serbia",
       `I'm ${ age }`,
       "Helped with design ideas in a few projects",
       "Will help you to improve your company or product",

@@ -1,11 +1,9 @@
 <script lang="ts" setup>
-import { IContacts } from "~/stores/contactsStore";
+import { Contacts } from "~/stores/contactsStore";
 
-interface IProps {
-  contactsInfo: IContacts[]
-}
-
-const props = defineProps<IProps>();
+defineProps<{
+  contactsInfo: Contacts[]
+}>();
 </script>
 
 <template>

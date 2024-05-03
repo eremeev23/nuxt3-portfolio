@@ -1,11 +1,11 @@
 import { defineStore, storeToRefs } from "pinia";
 import axios from "axios";
-import { IProject } from "~/types";
+import { Project } from "~/types";
 import { useHeaderStore } from "~/stores/headerStore";
 
 interface State {
-  projects: IProject[],
-  project: null | IProject
+  projects: Project[],
+  project: null | Project
 }
 
 export const useProjectsStore = defineStore('projectsStore', {
@@ -32,7 +32,7 @@ export const useProjectsStore = defineStore('projectsStore', {
 
     SET_PROJECT(slug:string | string[]) {
       if (this.projects?.length) {
-        this.project = this.projects.find((item:IProject) => item.slug === slug) || null;
+        this.project = this.projects.find((item: Project) => item.slug === slug) || null;
       }
     }
   }

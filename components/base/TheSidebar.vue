@@ -1,8 +1,12 @@
 <script setup lang="ts">
 import { useLazyAsyncData } from "#app";
+
+// Stores
 import { useHeaderStore } from "~/stores/headerStore";
 
 const { HEADER_REQUEST } = useHeaderStore();
+
+// Data fetching
 const { data } = useLazyAsyncData(() => HEADER_REQUEST());
 </script>
 

@@ -2,6 +2,48 @@ import { jsonfy } from "~/utils/jsonfy";
 
 const projects = [
   {
+    slug: 'citybrand',
+    title: 'Citybrand marketplace',
+    stack: ['Nuxt', 'Typescript', 'Tailwind', 'Pinia', 'axios'],
+    image: 'citybrand-1.png',
+    icon: 'plenexy',
+    caption: 'Clothing marketplace.',
+    link: 'https://ru.citybrand.store/',
+    repository: null,
+    commerce: true,
+    slides: [
+      'citybrand-1.png',
+      'citybrand-2.png',
+      'citybrand-3.png',
+      'citybrand-4.png',
+      'citybrand-5.png',
+    ],
+    description: 'The project involves the development and ongoing maintenance of a clothing marketplace, along with supplier and administrator panels. It has been built using cutting-edge technologies, specifically Nuxt3/Vue3 + Typescript. For efficient state management, the project utilizes Pinia. Styling is achieved through a combination of SCSS and Tailwind, while UI components are implemented using Element-plus.A key feature of this project is its modular structure, which enhances scalability and maintainability.',
+    designed: 'Plenexy design team'
+  },
+  {
+    slug: 'd1',
+    title: 'Residential ecosystem D1',
+    stack: ['Nuxt', 'Typescript', 'Tailwind', 'Pinia', 'axios', 'egjs/vue3-view360'],
+    image: 'd1_2.png',
+    icon: 'plenexy',
+    caption: 'Web application about the residential complex D1.',
+    link: 'https://d1-guide.mr-group.ru/',
+    repository: null,
+    commerce: true,
+    slides: [
+      'd1_1.png',
+      'd1_2.png',
+      'd1_3.png',
+      'd1_4.png',
+      'd1_5.png',
+      'd1_6.png',
+      'd1_7.png',
+    ],
+    description: 'This project is a web application for residents of a residential complex. It provides all the necessary information about the territory, services, and amenities of the residential complex. Users can also find nearby places for walks and restaurants, plan routes to them, and use a virtual guide to navigate the complex. The application includes a 3D model of the complex, views of the territories, floors, and buildings. Some locations feature 360 panoramas. Developed using Nuxt.js + Typescript. Styling is achieved through a combination of SCSS and Tailwind.',
+    designed: 'Plenexy design team'
+  },
+  {
     slug: 'markov',
     title: 'Markov dental clinic',
     stack: ['Nuxt', 'Typescript', 'Scss', 'Vuex', 'GSAP', 'axios'],

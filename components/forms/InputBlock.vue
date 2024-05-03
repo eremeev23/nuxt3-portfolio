@@ -15,6 +15,7 @@ interface IPops {
 const props = defineProps<IPops>();
 const emits = defineEmits(['update:modelValue'])
 
+// Layout
 const activeInput = ref(false);
 const focusInput = ref(false);
 
@@ -41,6 +42,7 @@ const inputValue = computed({
       @focus="focusInput = true"
       @blur="focusInput = false"
     >
+
     <label class="input-block__label" :for="input.name">
       {{ input.label }}
     </label>

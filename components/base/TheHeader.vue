@@ -1,25 +1,35 @@
 <script setup lang="ts">
 import { useLazyAsyncData } from "#app";
 import { storeToRefs } from "pinia";
-import { Lang, useHeaderStore } from "~/stores/headerStore";
 
+// Stores
+import { useHeaderStore } from "~/stores/headerStore";
+
+// Store
 const { menuStatus } = storeToRefs(useHeaderStore());
 const { HEADER_REQUEST, CHANGE_LANG } = useHeaderStore();
 
-const { data } = useLazyAsyncData(() => HEADER_REQUEST());
+// Data fetching
+const { data, refresh } = useLazyAsyncData(() => HEADER_REQUEST());
 
-const onSelect = (value:Lang) => {
-  CHANGE_LANG(value);
-  HEADER_REQUEST();
+// Functions
+function onSelect({ target }: Event) {
+  if (target) {
+    // @ts-ignore
+    CHANGE_LANG(target.value!);
+    refresh();
+  }
 }
 
-const menuHandler = () => {
+function menuHandler() {
   useHeaderStore().$patch((state) => state.menuStatus = !state.menuStatus);
 }
 
+// Theme logic
 const theme = ref(false);
-const themeIcon = ref<string>('light-mode');
-const switchTheme = () => {
+const themeIcon = ref('light-mode');
+
+function switchTheme(): void {
   const body = document.querySelector('body');
   body?.classList.toggle('dark');
   theme.value = !theme.value;
@@ -40,6 +50,7 @@ const switchTheme = () => {
       </nuxt-link>
 
       <ul v-if="data?.navigation?.length" class="flex items-center gap-4 sm:gap-8">
+        <!--  Navigation  -->
         <li
           class="hidden sm:block"
           v-for="item in data.navigation"
@@ -53,9 +64,11 @@ const switchTheme = () => {
             <span class="text-blue">#</span><span>{{ item.text }}</span>
           </nuxt-link>
         </li>
+
+        <!--  Languages toggler  -->
         <li v-if="data.langs">
           <select
-            @change="onSelect($event.target.value)"
+            @change="onSelect"
             name="lang"
             id="lang"
             class="text-[14px] sm:text-base"
@@ -69,12 +82,16 @@ const switchTheme = () => {
             </option>
           </select>
         </li>
+
+        <!--  Theme toggler  -->
         <li class="flex items-end">
           <button @click="switchTheme">
             <nuxt-icon v-if="theme" name="dark-mode" />
             <nuxt-icon v-else name="light-mode" />
           </button>
         </li>
+
+        <!--  Burger icon  -->
         <li class="sm:hidden">
           <button
             @click="menuHandler"

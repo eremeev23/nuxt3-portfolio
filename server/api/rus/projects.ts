@@ -2,6 +2,48 @@ import { jsonfy } from "~/utils/jsonfy";
 
 const projects = [
   {
+    slug: 'citybrand',
+    title: 'Маркетплейс Citybrand',
+    stack: ['Nuxt', 'Typescript', 'Tailwind', 'Pinia', 'axios'],
+    image: 'citybrand-1.png',
+    icon: 'plenexy',
+    caption: 'Маркетплейс одежды и аксессуаров.',
+    link: 'https://ru.citybrand.store/',
+    repository: null,
+    commerce: true,
+    slides: [
+      'citybrand-1.png',
+      'citybrand-2.png',
+      'citybrand-3.png',
+      'citybrand-4.png',
+      'citybrand-5.png',
+    ],
+    description: 'Проект включает в себя разработку и постоянное обслуживание маркетплейса одежды и аксессуаров, а также панелей поставщика и администратора. Он создан с использованием передовых технологий, в частности, Nuxt3/Vue3 + Typescript. Для эффективного управления состоянием проект использует Pinia. Стилизация осуществляется с использованием комбинации SCSS и Tailwind, а компоненты пользовательского интерфейса реализованы с помощью Element-plus. Одной из ключевых особенностей этого проекта является его модульная структура, которая повышает масштабируемость и обслуживаемость.',
+    designed: 'Plenexy design team'
+  },
+  {
+    slug: 'd1',
+    title: 'Жилая экосистема D1',
+    stack: ['Nuxt', 'Typescript', 'Tailwind', 'Pinia', 'axios', 'egjs/vue3-view360'],
+    image: 'd1_2.png',
+    icon: 'plenexy',
+    caption: 'Web-приложение о ЖК D1.',
+    link: 'https://d1-guide.mr-group.ru/',
+    repository: null,
+    commerce: true,
+    slides: [
+      'd1_1.png',
+      'd1_2.png',
+      'd1_3.png',
+      'd1_4.png',
+      'd1_5.png',
+      'd1_6.png',
+      'd1_7.png',
+    ],
+    description: 'Этот проект представляет собой вэб-приложение для резидентов жилого комплекса. В нем можно найти всю необходимую информацию о территории, сервисах и услугах ЖК. Также можно посмотреть ближайшие места для прогулок и рестораны, построить маршрут до них и есть виртуальный гид по самому ЖК. В нем представлены 3D-модель комплекса, виды территорий, этажей и зданий. На некоторых локациях имеются панорамы 360. Разработано на Nuxt.js + Typescript. Стилизация осуществляется с использованием комбинации SCSS и Tailwind.',
+    designed: 'Plenexy design team'
+  },
+  {
     slug: 'markov',
     title: 'Стомотология доктора Маркова',
     stack: ['Nuxt', 'Typescript', 'Scss', 'Vuex', 'GSAP', 'axios'],

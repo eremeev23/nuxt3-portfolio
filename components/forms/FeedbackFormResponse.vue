@@ -1,13 +1,25 @@
 <script lang="ts" setup>
-import { useGlobalStore } from "~/stores/globalStore";
 import { storeToRefs } from "pinia";
+
+// Stores
+import { useGlobalStore } from "~/stores/globalStore";
 import { useHeaderStore } from "~/stores/headerStore";
 
 const { responseSuccess } = storeToRefs(useGlobalStore());
 const { currentLang } = storeToRefs(useHeaderStore());
 
-const responseText = computed(():string =>  currentLang.value === 'eng' ? 'Thank you, your message is sent' : 'Спасибо, ваше сообщение отправлено');
-const errorText = computed(():string =>  currentLang.value === 'eng' ? 'Message isn`t sent. Something goes wrong.' : 'Сообщение не отправлено. Что-то пошло не так.');
+// Layout
+const responseText = computed<string>(
+  () =>  currentLang.value === 'eng' ?
+    'Thank you, your message is sent' :
+    'Спасибо, ваше сообщение отправлено'
+)
+
+const errorText = computed<string>(
+  () =>  currentLang.value === 'eng' ?
+    'Message isn`t sent. Something goes wrong.' :
+    'Сообщение не отправлено. Что-то пошло не так.'
+)
 </script>
 
 <template>
@@ -16,6 +28,7 @@ const errorText = computed(():string =>  currentLang.value === 'eng' ? 'Message 
         v-if="useGlobalStore().responseModal"
         class="modal signup-modal"
     >
+      <!--  Close button  -->
       <button
         @click="useGlobalStore().TOGGLE_RESPONSE_MODAL"
         class="close"
@@ -25,9 +38,12 @@ const errorText = computed(():string =>  currentLang.value === 'eng' ? 'Message 
       >
         <nuxt-icon name="close-icon" />
       </button>
+
+      <!--  Response text  -->
       <p v-if="responseSuccess" class="bg-[#fff] text-center text-dark text-lg">
         {{ responseText }}
       </p>
+
       <p v-else class="bg-[#fff] text-center text-dark text-lg">
         {{ errorText }}
       </p>

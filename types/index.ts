@@ -1,21 +1,21 @@
-export interface INavItem {
+export interface NavItem {
   id: number;
   text: string;
   href: string;
 }
 
-export interface IIcon {
+export interface Icon {
   name?: string;
   icon: string;
   href?: string;
 }
 
-export interface ISkill {
+export interface Skill {
   title: string;
   list: string[];
 }
 
-export interface IProject {
+export interface Project {
   slug: string;
   title: string;
   stack: string[];
@@ -30,7 +30,7 @@ export interface IProject {
   designed: string
 }
 
-export interface ICareer {
+export interface Career {
   id: number;
   title: string;
   link: string;

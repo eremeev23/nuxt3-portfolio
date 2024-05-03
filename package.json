@@ -13,9 +13,12 @@
     "nuxt-simple-sitemap": "^2.6.1"
   },
   "dependencies": {
+    "@nuxt/devtools": "^1.0.4",
+    "@nuxtjs/i18n": "8.0.0-rc.3",
     "@nuxtjs/tailwindcss": "^6.7.0",
     "@pinia/nuxt": "^0.4.11",
     "@vercel/analytics": "^0.1.8",
+    "@vercel/speed-insights": "^1.0.10",
     "axios": "^1.2.2",
     "nuxt-icons": "^3.0.0",
     "nuxt-swiper": "^0.1.6",

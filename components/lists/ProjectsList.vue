@@ -1,12 +1,10 @@
 <script lang="ts" setup>
-import { defineProps } from "vue";
-import { IProject } from "~/types";
+// Types
+import { Project } from "~/types";
 
-interface IProps {
-  list: IProject[];
-}
-
-const props = defineProps<IProps>();
+defineProps<{
+  list: Project[];
+}>();
 </script>
 
 <template>
@@ -17,6 +15,7 @@ const props = defineProps<IProps>();
       class="list-item bg-dark "
     >
       <nuxt-link class="flex flex-col border-2 border-white items-end" :to="`/projects/${project.slug}`">
+        <!-- Project's main image -->
         <div class="relative border-white w-full flex-2 h-[240px]">
           <nuxt-img
             class="object-cover max-h-full h-full w-full object-top"
@@ -26,7 +25,9 @@ const props = defineProps<IProps>();
             preload
           />
         </div>
-        <div class="w-full py-2 px-3 border-y-2 flex flex-wrap gap-2 sm:h-[68px] sm:p-4">
+
+        <!-- Project's tech stack -->
+        <div class="w-full py-2 px-3 border-y-2 flex flex-wrap gap-2 sm:h-[68px]">
           <span
             class="text-sm"
             v-for="(tech, i) in project.stack"
@@ -35,16 +36,20 @@ const props = defineProps<IProps>();
             {{ tech }}
           </span>
         </div>
+
+        <!-- Project's name and description -->
         <div class="p-3 w-full flex flex-3 flex-col gap-2 sm:p-4">
           <h3 class="flex gap-2 justify-between items-start text-lg">
             {{ project.title }}
 
             <nuxt-icon v-if="project.icon" class="mt-1" :name="project.icon" filled />
           </h3>
+
           <p class="opacity-[.6] text-sm">
             {{ project.caption }}
           </p>
         </div>
+
         <span class="block mr-3 my-4 px-3 py-1.5 shadow-2p border-[1px] border-[#fff] text-sm sm:hidden">
           more ->
         </span>

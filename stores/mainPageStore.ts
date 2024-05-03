@@ -1,6 +1,6 @@
-import { defineStore, storeToRefs } from "pinia";
 import axios from "axios";
-import { ICareer, IPageBlock, ISkill } from "~/types";
+import { defineStore, storeToRefs } from "pinia";
+import { Career, IPageBlock, Skill } from "~/types";
 import { useHeaderStore } from "~/stores/headerStore";
 
 interface State {
@@ -11,9 +11,9 @@ export interface IMainPage {
   title_text: string | null;
   main_text: string | null;
   photo: string | null;
-  skills: IPageBlock<ISkill> | null;
+  skills: IPageBlock<Skill> | null;
   facts: IPageBlock<string> | null;
-  career: IPageBlock<ICareer>
+  career: IPageBlock<Career>
 }
 
 export const useMainPageStore = defineStore('mainPageStore', {
@@ -22,17 +22,17 @@ export const useMainPageStore = defineStore('mainPageStore', {
   }),
 
   actions: {
-    async MAIN_PAGE_REQUEST() {
+    async fetchMainData() {
       const { currentLang } = storeToRefs(useHeaderStore());
-      this.mainPage = {} as IMainPage;
 
       try {
-        const { data } = await axios.get(`/api/${currentLang.value}/mainPage`);
-        this.mainPage = data;
-        this.mainPage.career.title = data.career.title;
-        this.mainPage.career.list = data.career.list?.sort((a: ICareer, b: ICareer) => a.order - b.order)
+        const { data } = await axios.get<IMainPage>(`/api/${currentLang.value}/mainPage`);
+        const response = data;
+        response.career.list = data.career.list?.sort((a: Career, b: Career) => a.order - b.order)
+        return response
       } catch (e) {
         console.log(e)
+        return null
       }
     }
   }
