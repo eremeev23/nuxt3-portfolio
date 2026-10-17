@@ -1,0 +1,27 @@
+name: CI
+on:
+  push:
+    branches: [main, redesign]
+  pull_request:
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  checks:
+    name: Typecheck & lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          # Reads the packageManager bun pin, so CI and local stay in sync.
+          bun-version-file: package.json
+      # postinstall runs nuxt prepare, which generates .nuxt/ (tsconfig
+      # references and .nuxt/eslint.config.mjs that both checks rely on).
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+      - name: Typecheck
+        run: bun run typecheck
+      - name: Lint
+        run: bun run lint

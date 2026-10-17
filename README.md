@@ -1,42 +1,35 @@
-# Nuxt 3 Minimal Starter
+# eremeev.dev — portfolio
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Personal site of Maksim Eremeev. Nuxt 4 (SSR) · Vue 3 · TypeScript · UnoCSS (presetWind4) · @nuxtjs/i18n, deployed on Vercel.
 
 ## Setup
 
-Make sure to install the dependencies:
-
 ```bash
-# yarn
-yarn install
-
-# npm
-npm install
-
-# pnpm
-pnpm install --shamefully-hoist
+bun install
 ```
 
-## Development Server
-
-Start the development server on http://localhost:3000
+## Development
 
 ```bash
-npm run dev
+bun run dev
+```
+
+Runs on http://localhost:3000.
+
+## Checks
+
+```bash
+bun run lint
+bun run typecheck
 ```
 
 ## Production
 
-Build the application for production:
-
 ```bash
-npm run build
+bun run build
+bun run preview
 ```
 
-Locally preview production build:
+## Editing content
 
-```bash
-npm run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Page copy lives in `server/content/en/` and `server/content/ru/` (not yet wired to the redesigned pages). UI strings (buttons, labels, error messages) live in `i18n/locales/en.json` and `ru.json`.

@@ -1,8 +1,23 @@
-node_modules
-*.log*
+# Nuxt
 .nuxt
 .nitro
-.cache
 .output
-.env
+.cache
+.data
 dist
+
+# Node
+node_modules
+*.log*
+
+# Env
+.env
+.env.*
+!.env.example
+
+# Vercel
+.vercel
+
+# Editors
+.idea
+.DS_Store

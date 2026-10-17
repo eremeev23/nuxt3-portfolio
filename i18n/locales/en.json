@@ -1,0 +1,60 @@
+{
+  "pages": {
+    "projects": "PROJECTS",
+    "contacts": "CONTACTS"
+  },
+  "project": {
+    "back": "back to all projects",
+    "domain": "Project domain:",
+    "repository": "Project repository:",
+    "stack": "Project stack:",
+    "description": "Description:",
+    "designedBy": "Designed by",
+    "more": "more ->"
+  },
+  "contacts": {
+    "formTitle": "CONTACT ME",
+    "linksTitle": "LINKS",
+    "showLinks": "OTHER WAYS",
+    "showForm": "BACK TO FORM"
+  },
+  "form": {
+    "email": "Your e-mail",
+    "name": "Your name",
+    "message": "Your message",
+    "submit": "SEND",
+    "success": "Thank you, your message is sent",
+    "failure": "Message isn`t sent. Something goes wrong."
+  },
+  "error": {
+    "notFound": "Oops... This page doesn't exist :(",
+    "generic": "Something goes wrong :(",
+    "home": "go to home page ->",
+    "code": "Error: {code}",
+    "projectNotFound": "Project not found"
+  },
+  "meta": {
+    "siteName": "Maksim Eremeev",
+    "description": "Maksim Eremeev — frontend developer. Projects, career and contacts.",
+    "home": "Frontend developer",
+    "projects": "Projects",
+    "contacts": "Contacts"
+  },
+  "a11y": {
+    "switchTheme": "Switch theme",
+    "menu": "Menu",
+    "language": "Language",
+    "close": "Close",
+    "submit": "Send message",
+    "switchTabs": "Switch between form and links",
+    "photo": "Maksim Eremeev",
+    "screenshot": "Screenshot {n}"
+  },
+  "footer": {
+    "copyright": "(c) MAKSIM EREMEEV {year}"
+  },
+  "placeholder": {
+    "title": "Site under construction",
+    "subtitle": "A new design is on its way."
+  }
+}
