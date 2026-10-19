@@ -1,4 +1,3 @@
-
 export const projects = [
   {
     slug: 'citybrand',
@@ -18,7 +17,7 @@ export const projects = [
       'citybrand-5.png',
     ],
     description: 'The project involves the development and ongoing maintenance of a clothing marketplace, along with supplier and administrator panels. It has been built using cutting-edge technologies, specifically Nuxt3/Vue3 + Typescript. For efficient state management, the project utilizes Pinia. Styling is achieved through a combination of SCSS and Tailwind, while UI components are implemented using Element-plus.A key feature of this project is its modular structure, which enhances scalability and maintainability.',
-    designed: 'Plenexy design team'
+    designed: 'Plenexy design team',
   },
   {
     slug: 'd1',
@@ -40,7 +39,7 @@ export const projects = [
       'd1_7.png',
     ],
     description: 'This project is a web application for residents of a residential complex. It provides all the necessary information about the territory, services, and amenities of the residential complex. Users can also find nearby places for walks and restaurants, plan routes to them, and use a virtual guide to navigate the complex. The application includes a 3D model of the complex, views of the territories, floors, and buildings. Some locations feature 360 panoramas. Developed using Nuxt.js + Typescript. Styling is achieved through a combination of SCSS and Tailwind.',
-    designed: 'Plenexy design team'
+    designed: 'Plenexy design team',
   },
   {
     slug: 'markov',
@@ -60,7 +59,7 @@ export const projects = [
       'markov_5.png',
     ],
     description: 'We`ve made this site for doctor Markov`s dental clinic. There are some fancy effects and GSAP animations like horizontal scroll. Also, there is an integration with Yandex maps. The main goal of this project was to create a simple and beautiful site with branded colors.',
-    designed: 'Grokhotov studio design team'
+    designed: 'Grokhotov studio design team',
   },
   {
     slug: 'industrial-ts',
@@ -75,10 +74,10 @@ export const projects = [
     slides: [
       'industrial-ts.jpg',
       'industrial-ts_2.png',
-      'industrial-ts_3.png'
+      'industrial-ts_3.png',
     ],
     description: 'We`ve made this site for russian retail company "Industrial technical supply". There was created a catalog and one product pages with AOS animations. This project was made as the first stage of online store. There is no cart, but there is a product`s requesting form.',
-    designed: '"Grokhotov studio" design team'
+    designed: '"Grokhotov studio" design team',
   },
   {
     slug: 'grade',
@@ -98,7 +97,7 @@ export const projects = [
       'grade_4.png',
     ],
     description: 'We`ve made this site for russian real estate redeveloping, reconstructing and building company "Grade". It was made with creative modern design and modern frontend technologies to show how modern the company is.',
-    designed: '"Grokhotov studio" design team'
+    designed: '"Grokhotov studio" design team',
   },
   {
     slug: 'lpadevice',
@@ -117,7 +116,7 @@ export const projects = [
       'lpa_3.png',
     ],
     description: 'This project is a redesign of the old "LenSpecAuto" site. There is an interesting Vue-component "Configurator" which is full dynamic and asynchronous. It helps to choose a product configuration with simple and understandable UI. We`ve made a cart with Vanilla JS Class. The project has already made a huge impact for the company.',
-    designed: '"Grokhotov studio" design team'
+    designed: '"Grokhotov studio" design team',
   },
   {
     slug: 'vue-weather',
@@ -130,7 +129,7 @@ export const projects = [
     commerce: false,
     slides: ['vue-weather.png'],
     description: 'Vue3 weather app. I`ve made this to learn basics of Pinia and Typescript in Vue3. There is a possibility to add or delete a city and change the order of it. This list will be saved in your localStorage. For data I`ve used Open Weather Map API.',
-    designed: 'me'
+    designed: 'me',
   },
   {
     slug: 'react-weather',
@@ -143,7 +142,7 @@ export const projects = [
     commerce: false,
     slides: ['react-weather.png'],
     description: 'React weather app. It`s also the dark them of the Vue3 weather-app. I`ve made this to learn basics of RTK Query and Typescript in React. There is a possibility to add or delete a city and change the order of it. This list will be saved in your localStorage. For data I`ve used Open Weather Map API.',
-    designed: 'me'
+    designed: 'me',
   },
   {
     slug: 'vue-register',
@@ -156,7 +155,7 @@ export const projects = [
     commerce: false,
     slides: ['vue-register.png'],
     description: 'Test task in "Uprock". I`ve made sign in form and redirecting to user page. It`s also possible to log out. After reloading page it will redirect to logged user page or to sign in form. Test user email: testuser@icloud.com, password: 123456.',
-    designed: 'me'
+    designed: 'me',
   },
   {
     slug: 'users-table',
@@ -169,7 +168,7 @@ export const projects = [
     commerce: false,
     slides: ['user-table.png'],
     description: 'Table of users (from pseudo-api) with pagination and search. Pagination progress and search phrase are saving in url as get-parameters and will load this data after reload.',
-    designed: 'me'
+    designed: 'me',
   },
   {
     slug: 'react-ecomm',
@@ -187,7 +186,7 @@ export const projects = [
       'el-modo_4.png',
     ],
     description: 'Clothes online store. I`ve developed this to learn basics of React and Redux toolkit. There are dynamic categories and products pages. You can add a product to cart.',
-    designed: 'me'
+    designed: 'me',
   },
   {
     slug: 'store-gallery',
@@ -200,7 +199,7 @@ export const projects = [
     commerce: false,
     slides: ['store-gallery.png'],
     description: 'I`ve made this project to improve my Nuxt skill. There you can add your own product, delete some product from list, sort all products and it will be saved in your localStorage.',
-    designed: 'me'
+    designed: 'me',
   },
   {
     slug: 'react-todo',
@@ -213,6 +212,6 @@ export const projects = [
     commerce: false,
     slides: ['todo.png'],
     description: 'It`s a simple Todo list that was made with React + Redux toolkit + Typescript stack.',
-    designed: 'me'
+    designed: 'me',
   },
 ]

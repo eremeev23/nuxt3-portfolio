@@ -1,47 +1,46 @@
-
 export const header = {
   navigation: [
     {
       id: 1,
-      text: "home",
-      href: "/"
+      text: 'home',
+      href: '/',
     },
     {
       id: 2,
-      text: "projects",
-      href: "/projects"
+      text: 'projects',
+      href: '/projects',
     },
     {
       id: 3,
-      text: "contacts",
-      href: "/contacts"
-    }
+      text: 'contacts',
+      href: '/contacts',
+    },
   ],
   icons: [
     {
       name: 'Github',
-      icon: "github",
-      href: "https://github.com/eremeev23"
+      icon: 'github',
+      href: 'https://github.com/eremeev23',
     },
     {
       name: 'Linkedin',
-      icon: "linkedin",
-      href: "https://www.linkedin.com/in/maksim-eremeev-6446101a9/"
+      icon: 'linkedin',
+      href: 'https://www.linkedin.com/in/maksim-eremeev-6446101a9/',
     },
     {
       name: 'Instagram',
-      icon: "inst",
-      href: "https://www.instagram.com/eremeev23/"
+      icon: 'inst',
+      href: 'https://www.instagram.com/eremeev23/',
     },
     {
       name: 'Telegram',
-      icon: "tg",
-      href: "https://t.me/eremeev23"
+      icon: 'tg',
+      href: 'https://t.me/eremeev23',
     },
     {
       name: 'Strava',
-      icon: "strava",
-      href: "https://www.strava.com/athletes/67307390"
-    }
-  ]
+      icon: 'strava',
+      href: 'https://www.strava.com/athletes/67307390',
+    },
+  ],
 }

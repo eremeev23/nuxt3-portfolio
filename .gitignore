@@ -21,3 +21,10 @@ node_modules
 # Editors
 .idea
 .DS_Store
+
+# Test coverage
+coverage/
+
+# Playwright
+playwright-report/
+test-results/

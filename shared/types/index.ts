@@ -2,24 +2,24 @@ export const LOCALE_CODES = ['en', 'ru'] as const
 
 export type LocaleCode = (typeof LOCALE_CODES)[number]
 
-export interface NavItem {
+export type NavItem = {
   id: number
   text: string
   href: string
 }
 
-export interface Icon {
+export type Icon = {
   name?: string
   icon: string
   href?: string
 }
 
-export interface Skill {
+export type Skill = {
   title: string
   list: string[]
 }
 
-export interface Project {
+export type Project = {
   slug: string
   title: string
   stack: string[]
@@ -34,7 +34,7 @@ export interface Project {
   designed: string
 }
 
-export interface Career {
+export type Career = {
   id: number
   title: string
   link: string
@@ -46,17 +46,17 @@ export interface Career {
   order: number
 }
 
-export interface IPageBlock<T> {
+export type IPageBlock<T> = {
   title: string
   list: T[]
 }
 
-export interface HeaderData {
+export type HeaderData = {
   navigation: NavItem[]
   icons: Icon[]
 }
 
-export interface MainPageData {
+export type MainPageData = {
   title_text: string
   main_text: string
   photo: string
@@ -65,14 +65,14 @@ export interface MainPageData {
   career: IPageBlock<Career>
 }
 
-export interface Contact {
+export type Contact = {
   title: string
   hrefPref: string
   value: string
   href: string
 }
 
-export interface ContentBundle {
+export type ContentBundle = {
   header: HeaderData
   mainPage: MainPageData
   projects: Project[]
