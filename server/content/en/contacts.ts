@@ -1,4 +1,3 @@
-
 export const contacts = [
   {
     title: 'E-mail',
@@ -34,18 +33,18 @@ export const contacts = [
     title: 'Telegram',
     hrefPref: '',
     value: '@eremeev23',
-    href: 'https://t.me/eremeev23'
+    href: 'https://t.me/eremeev23',
   },
   {
     title: 'Whatsapp',
     hrefPref: '',
     value: '',
-    href: 'https://api.whatsapp.com/send/?phone=995599389346&text&type=phone_number&app_absent=0'
+    href: 'https://api.whatsapp.com/send/?phone=995599389346&text&type=phone_number&app_absent=0',
   },
   {
     title: 'Strava',
     hrefPref: '',
-    value: "strava",
-    href: "https://www.strava.com/athletes/67307390"
-  }
+    value: 'strava',
+    href: 'https://www.strava.com/athletes/67307390',
+  },
 ]

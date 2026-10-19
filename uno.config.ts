@@ -39,11 +39,12 @@ const semanticNames = Object.keys(semantic) as SemanticName[]
 
 /** `bg` -> `var(--bg)`, so the utility resolves at runtime rather than build time. */
 const semanticColors = Object.fromEntries(
-  semanticNames.map(name => [name, `var(--${name})`])
+  semanticNames.map(name => [name, `var(--${name})`]),
 ) as Record<SemanticName, string>
 
-const declarations = (index: 0 | 1) =>
-  semanticNames.map(name => `  --${name}: ${semantic[name][index]};`).join('\n')
+function declarations(index: 0 | 1) {
+  return semanticNames.map(name => `  --${name}: ${semantic[name][index]};`).join('\n')
+}
 
 export default defineConfig({
   presets: [
@@ -68,30 +69,34 @@ export default defineConfig({
   theme: {
     colors: { ...brand, ...semanticColors },
 
-    /* ---------------------------------------------------------------------
-       TYPOGRAPHY
-
-       Archivo carries everything editorial - names, headings, body - at 900
-       (large names and figures), 800 (small caps labels), 500 (lead
-       paragraphs), 400. JetBrains Mono carries the technical layer - nav,
-       stack tags, dates, captions, footer - at 800 (nav, badges), 500, 400.
-
-       CAVEAT: Archivo ships Latin only, with no Cyrillic subset. Russian copy
-       falls through to the next family in the stack, so keep that fallback
-       deliberate; Inter is the closest Cyrillic grotesk. Do not trim the stack
-       down to Archivo alone, or Russian text drops to a system font.
-       --------------------------------------------------------------------- */
+    /*
+     * ---------------------------------------------------------------------
+     * TYPOGRAPHY
+     *
+     * Archivo carries everything editorial - names, headings, body - at 900
+     * (large names and figures), 800 (small caps labels), 500 (lead
+     * paragraphs), 400. JetBrains Mono carries the technical layer - nav,
+     * stack tags, dates, captions, footer - at 800 (nav, badges), 500, 400.
+     *
+     * CAVEAT: Archivo ships Latin only, with no Cyrillic subset. Russian copy
+     * falls through to the next family in the stack, so keep that fallback
+     * deliberate; Inter is the closest Cyrillic grotesk. Do not trim the stack
+     * down to Archivo alone, or Russian text drops to a system font.
+     * ---------------------------------------------------------------------
+     */
     font: {
       display: "'Archivo', 'Inter', 'Segoe UI', system-ui, sans-serif",
       ui: "'JetBrains Mono', ui-monospace, monospace",
     },
 
-    /* Each token carries size, line height and tracking together, so `text-hero`
-       alone is 112px / 0.86 / -0.05em.
-
-       Scale comes from the mockup, a 3x export of a ~1333px layout. Sizes and
-       the hero tracking are from the design spec; line heights and the caption
-       tracking were measured off the artboard. */
+    /*
+     * Each token carries size, line height and tracking together, so `text-hero`
+     * alone is 112px / 0.86 / -0.05em.
+     *
+     * Scale comes from the mockup, a 3x export of a ~1333px layout. Sizes and
+     * the hero tracking are from the design spec; line heights and the caption
+     * tracking were measured off the artboard.
+     */
     text: {
       'hero': {
         fontSize: '7rem',
@@ -119,9 +124,11 @@ export default defineConfig({
       },
     },
 
-    /* ---------------------------------------------------------------------
-       LAYOUT
-       --------------------------------------------------------------------- */
+    /*
+     * ---------------------------------------------------------------------
+     * LAYOUT
+     * ---------------------------------------------------------------------
+     */
 
     // Only lg and 2xl differ from the defaults.
     breakpoint: {
@@ -145,10 +152,12 @@ export default defineConfig({
     },
   },
 
-  /* -------------------------------------------------------------------------
-     UTILITIES
-     One-offs with no theme namespace to hang off.
-     ------------------------------------------------------------------------- */
+  /*
+   * -------------------------------------------------------------------------
+   * UTILITIES
+   * One-offs with no theme namespace to hang off.
+   * -------------------------------------------------------------------------
+   */
   rules: [
     [
       'grid-cols-custom',

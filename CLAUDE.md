@@ -13,12 +13,17 @@ bun run build         # SSR build (Nitro node-server preset; Vercel picks its ow
 bun run generate      # static prerender
 bun run preview       # serve the production build locally
 bun run typecheck     # nuxt typecheck (vue-tsc)
-bun run lint          # eslint . — flat config, must stay clean
-bun run lint:fix
-bun run format        # prettier --write .
+bun run lint          # eslint . — lints and checks formatting; errors must stay at zero
+bun run lint:fix      # also the formatter: there is no Prettier
+bun run test          # Vitest, single run: `unit` (test/unit, node) + `nuxt` (test/nuxt, Nuxt env on happy-dom)
+bun run test:unit     # only the `unit` project
+bun run test:watch    # Vitest in watch mode
+bun run test:e2e      # Playwright (test/e2e): builds, serves via `nuxt preview` on :3100, Chromium desktop 1440 + mobile 390
 ```
 
-There is no test runner. `bun run lint` and `bun run typecheck` are the gates; both pass on a clean tree. CI (`.github/workflows/ci.yml`) runs both on pushes to `main` / `redesign` and on every pull request, after `bun install --frozen-lockfile`.
+`bun run lint`, `bun run typecheck`, `bun run test` and `bun run build` are the gates; all pass on a clean tree. CI (`.github/workflows/ci.yml`) runs them on every push and pull request after `bun install --frozen-lockfile`, with e2e in a separate parallel job that uploads `playwright-report/` on failure. Locally, e2e needs `bunx playwright install chromium` once.
+
+ESLint is also the formatter, same setup as the easy-lesson and NRIZ projects: `eslint.config.mjs` wraps `@antfu/eslint-config` (`typescript`, `unocss`, `formatters` via `eslint-plugin-format`) in the Nuxt config, and `nuxt.config.ts` sets `eslint.config: { standalone: false, stylistic: true }` so the two don't fight. Style is single quotes, no semicolons, 2 spaces, trailing commas, `max-len` 120 (warning), one attribute per line in multiline templates, `type` over `interface`, separate `import type`, `curly: all`, starred-block multiline comments. `no-console` is off unless `LINT_CONFIG_STRICT_CONSOLE=true`. The long copy strings in `server/content/` trip `max-len` as warnings; that is known and fine. Do not add Prettier back — `.vscode/settings.json` disables it and fixes on save through ESLint.
 
 On Windows, WebStorm's UnoCSS plugin keeps a native `.node` binary in `node_modules` open, which can make a reinstall fail with `EPERM`; close the IDE (or that plugin's node process) before a clean install.
 
