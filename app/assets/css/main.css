@@ -1,0 +1,20 @@
+/* Base and component styles. Colour and font tokens live in tokens.css beside
+   this file; sizes, breakpoints and shortcuts in uno.config.ts. Do not add
+   tokens here. */
+
+/* Must stay inside `base`. Unlayered CSS beats every layer regardless of
+   specificity, and UnoCSS emits its utilities unlayered, so an unlayered base
+   rule that sets colour would silently override every utility class -
+   `text-accent` on an element would do nothing. */
+@layer base {
+  body {
+    background-color: var(--bg);
+    color: var(--fg);
+    font: 400 15px/1.5 var(--f-display);
+  }
+
+  :focus-visible {
+    outline: var(--b) solid var(--accent);
+    outline-offset: -2px;
+  }
+}

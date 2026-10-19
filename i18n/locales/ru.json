@@ -41,6 +41,7 @@
     "contacts": "Контакты"
   },
   "a11y": {
+    "logo": "Eremeev dev",
     "switchTheme": "Переключить тему",
     "menu": "Меню",
     "language": "Язык",

@@ -41,6 +41,7 @@
     "contacts": "Contacts"
   },
   "a11y": {
+    "logo": "Eremeev dev",
     "switchTheme": "Switch theme",
     "menu": "Menu",
     "language": "Language",

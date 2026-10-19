@@ -1,55 +1,30 @@
 import { defineConfig, presetWind4, transformerDirectives } from 'unocss'
 
-const brand = {
-  orange: {
-    DEFAULT: '#c2410c', // solid accent: buttons, marquee, active nav, CTA band
-    bright: '#e8722c', // accent as text/marks on the dark theme
-  },
-  light: {
-    DEFAULT: '#f4f2ec', // light page
-    raise: '#e6e3da', // light chips & cards
-    sunk: '#e2e0db', // light placeholder / hatch
-  },
-  dark: {
-    DEFAULT: '#171a1f', // dark page, and the light theme's ink
-    deep: '#101216', // deepest ink, reserved for full-bleed panels
-    raise: '#191c21', // dark chips & cards
-    sunk: '#14171b', // dark placeholder / hatch
-    line: '#22262c', // dark inner rules
-  },
-  bone: '#f2f3f4', // dark primary text
-}
-
-/* [light, dark] for every themed token. Edit the pairs here - nowhere else. */
-const semantic = {
-  bg: [brand.light.DEFAULT, brand.dark.DEFAULT],
-  surface: [brand.light.raise, brand.dark.raise],
-  sunken: [brand.light.sunk, brand.dark.sunk],
-  primary: [brand.dark.DEFAULT, brand.bone], // body text
-  secondary: ['#3f434a', '#c3c8ce'], // supporting text
-  muted: ['#6b6f76', '#9aa1aa'], // captions, disabled
-  line: [brand.dark.DEFAULT, brand.dark.line], // rules and borders
-  frame: [brand.dark.DEFAULT, '#000000'], // outer frame of raised blocks
-  accent: [brand.orange.DEFAULT, brand.orange.bright],
-} satisfies Record<string, [light: string, dark: string]>
-
-type SemanticName = keyof typeof semantic
-
-const semanticNames = Object.keys(semantic) as SemanticName[]
-
-/** `bg` -> `var(--bg)`, so the utility resolves at runtime rather than build time. */
-const semanticColors = Object.fromEntries(
-  semanticNames.map(name => [name, `var(--${name})`]),
-) as Record<SemanticName, string>
-
-function declarations(index: 0 | 1) {
-  return semanticNames.map(name => `  --${name}: ${semantic[name][index]};`).join('\n')
+/*
+ * Every colour resolves to a custom property from app/assets/css/tokens.css,
+ * which holds the dark (:root) and light (.light) values. No hex values here.
+ */
+const colors = {
+  bg: 'var(--bg)',
+  fg: 'var(--fg)',
+  line: 'var(--line)',
+  muted: 'var(--muted)',
+  text2: 'var(--text-2)',
+  surface: 'var(--surface)',
+  surface2: 'var(--surface-2)',
+  ph: 'var(--ph)',
+  wave: 'var(--wave)',
+  accent: 'var(--accent)',
+  onAccent: 'var(--on-accent)',
+  fill: 'var(--fill)',
+  onFill: 'var(--on-fill)',
+  navLine: 'var(--nav-line)',
 }
 
 export default defineConfig({
   presets: [
     presetWind4({
-      // `.dark` is toggled on <body> by switchTheme() in TheHeader.vue.
+      // @nuxtjs/color-mode puts `.dark` / `.light` on <html>.
       dark: 'class',
     }),
   ],
@@ -57,17 +32,8 @@ export default defineConfig({
   // Enables `@apply` inside every <style> block.
   transformers: [transformerDirectives()],
 
-  // The themed custom properties the semantic colours above point at.
-  preflights: [
-    {
-      layer: 'preflights',
-      getCSS: () =>
-        `:root {\n${declarations(0)}\n}\n\n.dark {\n${declarations(1)}\n}`,
-    },
-  ],
-
   theme: {
-    colors: { ...brand, ...semanticColors },
+    colors,
 
     /*
      * ---------------------------------------------------------------------
@@ -80,13 +46,14 @@ export default defineConfig({
      *
      * CAVEAT: Archivo ships Latin only, with no Cyrillic subset. Russian copy
      * falls through to the next family in the stack, so keep that fallback
-     * deliberate; Inter is the closest Cyrillic grotesk. Do not trim the stack
-     * down to Archivo alone, or Russian text drops to a system font.
+     * deliberate; Inter is the closest Cyrillic grotesk. The stack itself is
+     * --f-display in tokens.css; do not trim it down to Archivo alone, or
+     * Russian text drops to a system font.
      * ---------------------------------------------------------------------
      */
     font: {
-      display: "'Archivo', 'Inter', 'Segoe UI', system-ui, sans-serif",
-      ui: "'JetBrains Mono', ui-monospace, monospace",
+      display: 'var(--f-display)',
+      mono: 'var(--f-mono)',
     },
 
     /*
@@ -136,20 +103,24 @@ export default defineConfig({
       '2xl': '87.5rem', // 1400px
     },
 
-    // Hard offset shadows, no blur - they read as a second outline.
-    shadow: {
-      '2p': '2px 2px 0 var(--primary)',
-      '4p': '4px 4px 0 var(--primary)',
-      '8p': '8px 8px 0 var(--primary)',
-    },
-
     animation: {
       keyframes: {
-        blink: `{0%,100%{background-color:${brand.orange.DEFAULT}}50%{background-color:transparent}}`,
+        blink: '{0%,100%{background-color:var(--accent)}50%{background-color:transparent}}',
       },
       durations: { blink: '1s' },
       counts: { blink: 'infinite' },
     },
+  },
+
+  /*
+   * Brutalist primitives: 2px borders, no radius, no shadows, one accent.
+   */
+  shortcuts: {
+    'brut': 'border-2 border-line',
+    'h-page': 'font-display font-900 uppercase leading-[.85] tracking-[-.045em]',
+    'label': 'font-mono font-800 text-[11px] tracking-[.08em] text-muted',
+    'btn-acc': 'inline-flex items-center min-h-11 px-5 py-3.5 bg-accent text-onAccent font-mono font-800 text-xs',
+    'stripe': 'brut bg-[repeating-linear-gradient(135deg,var(--surface)_0_8px,var(--surface-2)_8px_16px)]',
   },
 
   /*

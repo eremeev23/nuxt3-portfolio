@@ -2,6 +2,7 @@ export default defineNuxtConfig({
 
   modules: [
     '@nuxtjs/i18n',
+    '@nuxtjs/color-mode',
     '@nuxt/fonts',
     '@nuxt/image',
     '@nuxtjs/sitemap',
@@ -14,11 +15,23 @@ export default defineNuxtConfig({
 
   devtools: { enabled: true },
 
-  css: ['~/assets/style/main.css'],
+  css: ['~/assets/css/tokens.css', '~/assets/css/main.css'],
 
   // Single source of truth for the canonical origin; @nuxtjs/sitemap reads it from here.
   site: {
     url: process.env.NUXT_PUBLIC_SITE_URL || 'https://eremeev-dev.vercel.app',
+  },
+
+  /*
+   * Dark by default. classSuffix '' gives `.dark` / `.light` on <html>:
+   * tokens.css keys the light theme off `.light`, presetWind4's `dark:` variant
+   * off `.dark`.
+   */
+  colorMode: {
+    preference: 'dark',
+    fallback: 'dark',
+    classSuffix: '',
+    storageKey: 'color-mode',
   },
 
   runtimeConfig: {
@@ -29,8 +42,18 @@ export default defineNuxtConfig({
   },
   compatibilityDate: '2026-08-26',
 
+  /*
+   * test/nuxt is covered by the generated app config; the node-side tests are
+   * not, so the IDE would type them with no Node types at all.
+   */
   typescript: {
     strict: true,
+    nodeTsConfig: {
+      include: ['../test/unit/**/*', '../test/e2e/**/*', '../playwright.config.ts'],
+      compilerOptions: {
+        types: ['node'],
+      },
+    },
   },
 
   /*
@@ -48,7 +71,7 @@ export default defineNuxtConfig({
    * Self-hosted at build time from Google Fonts. Declared explicitly (global)
    * rather than left to auto-detection, because the font-family declarations
    * live in UnoCSS-generated CSS. Archivo has no Cyrillic subset - see the
-   * font stack in uno.config.ts for the Russian fallback.
+   * --f-display stack in app/assets/css/tokens.css for the Russian fallback.
    */
   fonts: {
     defaults: {
