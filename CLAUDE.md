@@ -62,9 +62,11 @@ Adding a visible string means deciding which of the two it belongs to. In locale
 
 ### Styling — UnoCSS, config-first
 
-`uno.config.ts` at the project root is the whole design system: palette, type scale, breakpoints, shadows, the `blink` keyframes and the three custom utilities. `app/assets/style/main.css` beside it holds only base and component styles and should not gain tokens. There is no `tailwind.config.ts` and no `@theme` block — Tailwind was removed in favour of UnoCSS.
+Two files make up the design system. `app/assets/css/tokens.css` holds every colour value plus `--b` (2px border) and the font stacks `--f-display` / `--f-mono`. `uno.config.ts` at the project root maps theme colours and fonts onto those variables and owns the type scale, breakpoints, the `blink` keyframes, the shortcuts and the three custom utilities. `app/assets/css/main.css` holds only base styles (body, `:focus-visible`) and should not gain tokens. There is no `tailwind.config.ts` and no `@theme` block — Tailwind was removed in favour of UnoCSS.
 
-The preset is **`presetWind4`**, so utility names are the Tailwind 4 ones (`bg-*`, `text-*`, `lg:`, `dark:`, arbitrary values). Theme keys, however, are UnoCSS's: `colors`, `font`, `text`, `breakpoint`, `shadow`, `animation` — partial objects that deep-merge over the preset's defaults, so overriding `breakpoint.lg` leaves `sm`/`md`/`xl` intact.
+Design rules: 2px borders, no radius, no shadows, one accent, no hardcoded colours in components.
+
+The preset is **`presetWind4`**, so utility names are the Tailwind 4 ones (`bg-*`, `text-*`, `lg:`, `dark:`, arbitrary values). Theme keys, however, are UnoCSS's: `colors`, `font`, `text`, `breakpoint`, `animation` — partial objects that deep-merge over the preset's defaults, so overriding `breakpoint.lg` leaves `sm`/`md`/`xl` intact.
 
 Two things in `nuxt.config.ts` are load-bearing:
 
@@ -75,34 +77,28 @@ Two things in `nuxt.config.ts` are load-bearing:
 
 #### Colours
 
-Defined in `uno.config.ts` as two objects. **`brand` never flips** — reach for it when a colour must stay put, e.g. a filled accent band or text sitting on one:
+Values live only in `tokens.css`: **dark on `:root`** (the default), **light on `.light`**. `@nuxtjs/color-mode` (`preference`/`fallback: 'dark'`, `classSuffix: ''`) puts `.dark` or `.light` on `<html>`; presetWind4's `dark:` variant keys off `.dark`. Each theme colour in `uno.config.ts` is `var(--…)`, so `bg-surface` or `text-muted` needs no `dark:` variant. Nothing toggles the theme yet.
 
-| utility                                         | value                                                     |                                                         |
-| ----------------------------------------------- | --------------------------------------------------------- | ------------------------------------------------------- |
-| `orange` / `orange-bright`                      | `#c2410c` / `#e8722c`                                     | solid accent; the bright one is the dark theme's accent |
-| `light` / `-raise` / `-sunk`                    | `#f4f2ec` / `#e6e3da` / `#e2e0db`                         | light page, chips, hatch                                |
-| `dark` / `-deep` / `-raise` / `-sunk` / `-line` | `#171a1f` / `#101216` / `#191c21` / `#14171b` / `#22262c` | dark page, panels, chips, hatch, rules                  |
-| `bone`                                          | `#f2f3f4`                                                 | dark primary text                                       |
+| utility                    | variable                  | dark      | light     |                                    |
+| -------------------------- | ------------------------- | --------- | --------- | ---------------------------------- |
+| `bg`                       | `--bg`                    | `#101216` | `#f4f2ec` | page                               |
+| `fg`                       | `--fg`                    | `#f2f3f4` | `#101216` | body text                          |
+| `line`                     | `--line`                  | `#22262c` | `#101216` | rules and borders                  |
+| `muted`                    | `--muted`                 | `#9aa1aa` | `#5f636a` | labels, captions                   |
+| `text2`                    | `--text-2`                | `#c3c8ce` | `#3f434a` | supporting text                    |
+| `surface` / `surface2`     | `--surface` / `--surface-2` | `#191c21` / `#14171b` | `#e6e3da` / `#ece9e1` | cards, chips, stripes |
+| `ph` / `wave`              | `--ph` / `--wave`         | `#4d545d` / `#2b3038` | `#8b8f95` / `#cfcabd` | placeholder art     |
+| `accent` / `onAccent`      | `--accent` / `--on-accent` | `#e8722c` / `#101216` | `#c2410c` / `#ffffff` | accent as text, mark, button |
+| `fill` / `onFill`          | `--fill` / `--on-fill`    | `#c2410c` / `#ffffff` | `#c2410c` / `#ffffff` | filled bands: marquee, CTA |
+| `navLine`                  | `--nav-line`              | `#e8722c` | `#c2410c` | active nav rule                    |
 
-**`semantic` flips with `.dark`.** Use these by default — `bg-surface`, `text-secondary` and `border-line` need no `dark:` variant, because each resolves to `var(--<name>)` and the pair is swapped by a preflight that `uno.config.ts` generates from the same object:
+Colour utilities use the camelCase key (`text-onAccent`, `bg-surface2`); the kebab form does not resolve. Hand-written CSS references the variables directly. `accent` brightens on dark; `fill` is `#c2410c` in both themes.
 
-| utility     | light     | dark      |                              |
-| ----------- | --------- | --------- | ---------------------------- |
-| `bg`        | `#f4f2ec` | `#171a1f` | page                         |
-| `surface`   | `#e6e3da` | `#191c21` | cards, chips                 |
-| `sunken`    | `#e2e0db` | `#14171b` | placeholders, hatch          |
-| `primary`   | `#171a1f` | `#f2f3f4` | body text                    |
-| `secondary` | `#3f434a` | `#c3c8ce` | supporting text              |
-| `muted`     | `#6b6f76` | `#9aa1aa` | captions, disabled           |
-| `line`      | `#171a1f` | `#22262c` | rules and borders            |
-| `frame`     | `#171a1f` | `#000000` | outer frame of raised blocks |
-| `accent`    | `#c2410c` | `#e8722c` | accent as text or a mark     |
+`test/unit/tokens.test.ts` parses `tokens.css` (one declaration per line) and checks that both themes define the same tokens and that the pairs in use meet WCAG AA (4.5:1 body, 3:1 large).
 
-To change a themed colour, edit the `[light, dark]` pair in `semantic` — nothing else. Hand-written CSS should reference the custom properties directly (`var(--primary)`, `var(--accent)`, …).
+#### Shortcuts and primitives
 
-The one asymmetry worth knowing: **filled** accent areas (buttons, the tech marquee, the CTA band, active nav) are `#c2410c` in _both_ themes — that is `bg-orange`. Accent used as **text or a small mark** (the hero dot, `100K`, `OPEN TO OFFERS`, `NOW`) brightens on dark — that is `accent`, which flips.
-
-Dark mode is a `.dark` class on `<body>` (`presetWind4({ dark: 'class' })`). Nothing toggles it yet — the old header's switcher went with the old UI.
+Shortcuts in `uno.config.ts`: `brut` (2px line border), `h-page` (page-title type), `label` (mono 11px caption), `btn-acc`, `stripe` (hatched placeholder). Primitives live in `app/components/ui/`: `BrutButton` (`accent` / `line` / `white`; a `<NuxtLinkLocale>` when `to` is set, else `<button>`), `Chip`, `Pill`, `Label`, `Stripe`, `SectionTitle`, `PageTitle` (accent dot, `xl` / `xxl`), `CtaBand` (`title` / `side` slots), `TheMarquee` (CSS loop, pauses on hover, off under `prefers-reduced-motion`), `AppLogo`. Interactive ones keep a 44px minimum height (`min-h-11`); focus is a 2px accent outline from `main.css`.
 
 #### Cascade
 
@@ -112,12 +108,12 @@ Custom utilities with no theme namespace (`grid-cols-custom`, `grid-cols-custom-
 
 ### Typography
 
-Two families, self-hosted by `@nuxt/fonts` (the `fonts` block in `nuxt.config.ts` downloads them from Google Fonts at build time; normal style only, Latin + Cyrillic subsets). They are declared `global: true` rather than left to auto-detection, because the `font-family` declarations live in UnoCSS-generated CSS:
+Two families, self-hosted by `@nuxt/fonts` (the `fonts` block in `nuxt.config.ts` downloads them from Google Fonts at build time; normal style only, Latin + Cyrillic subsets). They are declared `global: true` rather than left to auto-detection, because the `font-family` declarations live in `tokens.css` and UnoCSS-generated CSS:
 
 - **`font-display` → Archivo** — names, headings, body copy. Weights in use: 900 (large names and figures), 800 (small caps labels), 500 (lead paragraphs), 400 (body).
-- **`font-ui` → JetBrains Mono** — the technical layer: nav, stack tags, dates, captions, footer. Weights: 800 (nav, badges), 500, 400.
+- **`font-mono` → JetBrains Mono** — the technical layer: nav, stack tags, dates, captions, footer. Weights: 800 (nav, badges), 500, 400.
 
-**Archivo has no Cyrillic subset** (Latin / Latin-ext / Vietnamese only — verified against the Google Fonts API). Every Russian string on the site therefore renders in the next family in the stack, currently Inter. That is a deliberate fallback, not an oversight: do not "simplify" the stack down to `'Archivo', sans-serif`, or Russian copy drops to a system font and the two locales stop matching. JetBrains Mono does ship Cyrillic, so the technical layer is fine in both languages.
+**Archivo has no Cyrillic subset** (Latin / Latin-ext / Vietnamese only — verified against the Google Fonts API). Every Russian string on the site therefore renders in the next family in the `--f-display` stack, currently Inter. That is a deliberate fallback, not an oversight: do not "simplify" the stack down to `'Archivo', sans-serif`, or Russian copy drops to a system font and the two locales stop matching. JetBrains Mono does ship Cyrillic, so the technical layer is fine in both languages.
 
 The scale lives in the config's `text` map, so each utility carries size, line-height and tracking together — `text-hero` alone is 112px / 0.86 / -0.05em:
 

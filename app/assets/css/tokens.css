@@ -1,0 +1,52 @@
+/*
+ * Design tokens - the single source of every color on the site.
+ *
+ * Dark is the default and lives on :root; @nuxtjs/color-mode puts `.light`
+ * on <html> for the light theme. Every colour token must be defined in both
+ * blocks. uno.config.ts maps theme colours onto these variables, and
+ * test/unit/tokens.test.ts parses this file to check contrast in both
+ * themes - keep one declaration per line.
+ */
+
+:root {
+  color-scheme: dark;
+
+  --bg: #101216;
+  --fg: #f2f3f4;
+  --line: #22262c;
+  --muted: #9aa1aa;
+  --text-2: #c3c8ce;
+  --surface: #191c21;
+  --surface-2: #14171b;
+  --ph: #4d545d;
+  --wave: #2b3038;
+  --accent: #e8722c;
+  --on-accent: #101216;
+  --fill: #c2410c;
+  --on-fill: #ffffff;
+  --nav-line: #e8722c;
+
+  /* Not themed. */
+  --b: 2px;
+  --f-display: 'Archivo', 'Inter', 'Segoe UI', system-ui, sans-serif;
+  --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+.light {
+  color-scheme: light;
+
+  --bg: #f4f2ec;
+  --fg: #101216;
+  --line: #101216;
+  --muted: #5f636a;
+  --text-2: #3f434a;
+  --surface: #e6e3da;
+  --surface-2: #ece9e1;
+  --ph: #8b8f95;
+  --wave: #cfcabd;
+  --accent: #c2410c;
+  --on-accent: #ffffff;
+  --fill: #c2410c;
+  --on-fill: #ffffff;
+  --nav-line: #c2410c;
+}
