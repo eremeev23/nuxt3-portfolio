@@ -1,0 +1,44 @@
+/*
+ * Route transition, registered as `app.pageTransition` ({ name: 'page',
+ * mode: 'out-in' }) in nuxt.config.ts. Same motion as the pre-redesign site:
+ * the old page lifts up and shrinks away, the new one rises from below.
+ * Distances are fixed pixels rather than the old percentages, so a long page
+ * does not get pushed hundreds of pixels past the viewport mid-transition.
+ *
+ * Unlayered on purpose: these classes sit on a page's root element and must
+ * win over any utility that sets opacity or transform there.
+ */
+.page-enter-active {
+  transition:
+    opacity 0.45s cubic-bezier(0.645, 0.045, 0.355, 1),
+    transform 0.45s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.page-leave-active {
+  transition:
+    opacity 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+    transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(48px) scale(0.96);
+}
+
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(-24px) scale(0.96);
+}
+
+/* No movement for reduced motion: a short cross-fade only. */
+@media (prefers-reduced-motion: reduce) {
+  .page-enter-active,
+  .page-leave-active {
+    transition: opacity 0.15s linear;
+  }
+
+  .page-enter-from,
+  .page-leave-to {
+    transform: none;
+  }
+}

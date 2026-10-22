@@ -1,0 +1,150 @@
+{
+  "home": {
+    "self": "Domovská stránka | Domovské stránky | Domovských stránek",
+    "title": "Domů",
+    "backHome": "← Domů"
+  },
+  "locales": {
+    "en": "Angličtina",
+    "ru": "Ruština",
+    "cs": "Čeština",
+    "sr": "Srbština",
+    "es": "Španělština",
+    "de": "Němčina",
+    "pt": "Portugalština",
+    "it": "Italština",
+    "fr": "Francouzština"
+  },
+  "theme": {
+    "light": "Světlý",
+    "dark": "Tmavý"
+  },
+  "projects": {
+    "self": "Projekt | Projekty | Projektů",
+    "allProjects": "Všechny projekty",
+    "title": "Projekty",
+    "back": "zpět na všechny projekty",
+    "domain": "Web projektu:",
+    "repository": "Repozitář projektu:",
+    "stack": "Stack projektu:",
+    "description": "Popis:",
+    "designedBy": "Design:",
+    "more": "více ->"
+  },
+  "contacts": {
+    "self": "Kontakt | Kontakty | Kontaktů",
+    "title": "Kontakty",
+    "formTitle": "NAPIŠTE MI",
+    "linksTitle": "ODKAZY",
+    "showLinks": "DALŠÍ MOŽNOSTI",
+    "showForm": "ZPĚT K FORMULÁŘI"
+  },
+  "blog": {
+    "self": "Blog | Blogy | Blogů",
+    "title": "Blog",
+    "back": "zpět na všechny příspěvky",
+    "domain": "Doména blogu:",
+    "repository": "Repozitář blogu:",
+    "stack": "Stack blogu:",
+    "description": "Popis:",
+    "designedBy": "Design:",
+    "more": "více ->"
+  },
+  "form": {
+    "email": "Váš e-mail",
+    "name": "Vaše jméno",
+    "message": "Vaše zpráva",
+    "submit": "ODESLAT",
+    "success": "Děkuji, vaše zpráva byla odeslána",
+    "failure": "Zprávu se nepodařilo odeslat. Něco se pokazilo."
+  },
+  "error": {
+    "notFound": "Jejda... Tato stránka neexistuje :(",
+    "generic": "Něco se pokazilo :(",
+    "home": "na hlavní stránku ->",
+    "code": "Chyba: {code}",
+    "projectNotFound": "Projekt nebyl nalezen"
+  },
+  "meta": {
+    "siteName": "Maksim Eremeev",
+    "description": "Maksim Eremeev — frontend vývojář. Projekty, praxe a kontakty.",
+    "home": "Frontend vývojář",
+    "projects": "Projekty",
+    "blog": "Blog",
+    "contacts": "Kontakty"
+  },
+  "a11y": {
+    "logo": "Eremeev dev",
+    "switchTheme": "Přepnout motiv",
+    "menu": "Menu",
+    "language": "Jazyk",
+    "close": "Zavřít",
+    "submit": "Odeslat zprávu",
+    "switchTabs": "Přepnout mezi formulářem a odkazy",
+    "photo": "Maksim Eremeev",
+    "screenshot": "Snímek obrazovky {n}",
+    "home": "Eremeev, na úvodní stránku",
+    "sections": "Sekce webu"
+  },
+  "footer": {
+    "copyright": "(c) MAKSIM EREMEEV {year}",
+    "title": "Pojďme něco vytvořit"
+  },
+  "links": {
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "telegram": "Telegram",
+    "instagram": "Instagram",
+    "strava": "Strava"
+  },
+  "placeholder": {
+    "title": "Web ve výstavbě",
+    "subtitle": "Brzy tu bude nový design."
+  },
+  "nav": {
+    "hire": "Najměte mě"
+  },
+  "menu": {
+    "offers": "Otevřený nabídkám",
+    "marquee": "Frontend · Vue · Nuxt · TypeScript",
+    "dialog": "Menu webu",
+    "open": "Otevřít menu",
+    "close": "Zavřít menu"
+  },
+  "errors": {
+    "self": "Chyba | Chyby | Chyb",
+    "request": "Požadavek",
+    "status": "Stav",
+    "didYouMean": "Měli jste na mysli",
+    "whereToGo": "Kam dál",
+    "routes": "{n} trasa | {n} trasy | {n} tras",
+    "backHome": "← Zpět domů",
+    "code": {
+      "403": "Přístup odepřen",
+      "404": "Stránka nenalezena",
+      "500": "Interní chyba serveru",
+      "503": "Služba je nedostupná"
+    },
+    "title": {
+      "403": "Přístup odepřen",
+      "404": "Stránka nenalezena",
+      "500": "Interní chyba serveru",
+      "503": "Služba je nedostupná"
+    },
+    "description": {
+      "403": "Sem nemáš přístup",
+      "404": "Stránka se ztratila",
+      "500": "Na serveru je něco špatně",
+      "503": "Služba je asi mimo provoz"
+    },
+    "moreInfo": {
+      "403": "Tahle stránka je uzavřená. Pokud si myslíš, že ji máš vidět, napiš mi.",
+      "404": "Taková stránka neexistuje. Projekt se možná přesunul, nebo je v odkazu překlep.",
+      "500": "Na mé straně se něco pokazilo. Obnov stránku za minutu.",
+      "503": "Web je na chvíli nedostupný. Zkus to znovu za pár minut."
+    }
+  },
+  "common": {
+    "tryAgain": "Zkusit znovu ↻"
+  }
+}

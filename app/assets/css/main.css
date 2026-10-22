@@ -13,8 +13,71 @@
     font: 400 15px/1.5 var(--f-display);
   }
 
+  /* Display-size words (Archivo 900 at 40px+) must wrap rather than push the page sideways on a phone. */
+  h1,
+  h2,
+  h3 {
+    overflow-wrap: anywhere;
+  }
+
   :focus-visible {
-    outline: var(--b) solid var(--accent);
+    outline: 2px solid var(--accent);
     outline-offset: -2px;
+  }
+
+  .container {
+    max-width: 1440px;
+    width: 100%;
+  }
+}
+
+* {
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--accent);
+  }
+
+  ::-webkit-scrollbar {
+    background-color: var(--bg);
+    width: 6px;
+  }
+}
+
+.min-height-for-page {
+  min-height: calc(100dvh - 53px);
+}
+
+.glitch-text {
+  animation: glitch 4s steps(1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glitch-text {
+    animation: none;
+  }
+}
+
+@keyframes glitch {
+  0%,
+  90%,
+  100% {
+    transform: none;
+    text-shadow: none;
+    clip-path: none;
+  }
+  92% {
+    transform: translate(-6px, 2px);
+    text-shadow: 16px 0 var(--accent);
+  }
+  94% {
+    transform: translate(5px, -2px);
+    clip-path: inset(15% 0 50% 0);
+  }
+  96% {
+    transform: translate(-2px, 0);
+    clip-path: inset(60% 0 8% 0);
+    text-shadow: -16px 0 var(--accent);
+  }
+  98% {
+    transform: translate(2px, 1px);
   }
 }

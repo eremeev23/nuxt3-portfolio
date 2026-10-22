@@ -141,7 +141,10 @@ export const projects = [
     repository: 'https://github.com/eremeev23/react-ts-weather-app',
     commerce: false,
     slides: ['react-weather.png'],
-    description: 'Я сделал этот проект, чтобы проработать основные концепции RTK Query и Typescript в React. Также, это тёмная тема такого же проекта на Vue3. В нем есть возможность добавить или удалить город и изменять порядок городов. Список сохраняется в localStorage. Для данных я использовал Open Weather Map API.',
+    description: 'Я сделал этот проект, чтобы проработать основные концепции RTK Query и Typescript в React. '
+      + 'Также, это тёмная тема такого же проекта на Vue3. В нем есть возможность добавить или '
+      + 'удалить город и изменять порядок городов. Список сохраняется в localStorage. '
+      + 'Для данных я использовал Open Weather Map API.',
     designed: 'мной',
   },
   {

@@ -11,11 +11,54 @@ export default defineNuxtConfig({
     '@vercel/analytics/nuxt',
     '@vercel/speed-insights/nuxt',
     '@nuxt/test-utils/module',
+    '@vueuse/nuxt/module',
   ],
+
+  /*
+   * Feature code lives in app/libs/<Lib>/{components,composables,utils,functions,types}.
+   * Components register by file name only (pathPrefix: false), so
+   * libs/App/components/BrutButton/BrutButton.vue is <BrutButton>; names must stay unique
+   * across libs. The default ~/components dir keeps Nuxt's path prefixing.
+   */
+  components: {
+    dirs: [
+      {
+        path: '~/libs',
+        pattern: '*/components/**/*.vue',
+        pathPrefix: false,
+      },
+      '~/components',
+    ],
+  },
+
+  /*
+   * On top of Nuxt's defaults (app/composables, app/utils top level,
+   * shared/utils, shared/types): nested dirs and every lib's
+   * composables / utils / functions / types. Exported types are picked up too.
+   */
+  imports: {
+    dirs: [
+      'composables/**',
+      'utils/**',
+      'types/**',
+      'libs/*/composables/**',
+      'libs/*/utils/**',
+      'libs/*/functions/**',
+      'libs/*/types/**',
+    ],
+  },
 
   devtools: { enabled: true },
 
-  css: ['~/assets/css/tokens.css', '~/assets/css/main.css'],
+  /*
+   * Route transition between pages; the CSS (incl. the reduced-motion fallback)
+   * is in app/assets/css/transitions.css. out-in so the two pages never stack.
+   */
+  app: {
+    pageTransition: { name: 'page', mode: 'out-in' },
+  },
+
+  css: ['~/assets/css/tokens.css', '~/assets/css/main.css', '~/assets/css/transitions.css', '~/assets/css/cursors.css'],
 
   // Single source of truth for the canonical origin; @nuxtjs/sitemap reads it from here.
   site: {
@@ -43,8 +86,9 @@ export default defineNuxtConfig({
   compatibilityDate: '2026-08-26',
 
   /*
-   * test/nuxt is covered by the generated app config; the node-side tests are
-   * not, so the IDE would type them with no Node types at all.
+   * The component tests next to the code in app/ are covered by the generated
+   * app config; the node-side tests are not, so the IDE would type them with
+   * no Node types at all.
    */
   typescript: {
     strict: true,
@@ -95,9 +139,11 @@ export default defineNuxtConfig({
   },
 
   /*
-   * Russian is the default and lives at the bare paths; English is served
-   * under /en. baseUrl makes useLocaleHead() emit absolute hreflang/canonical
-   * links, and @nuxtjs/sitemap reads the same locales to emit alternates.
+   * Russian is the default and lives at the bare paths; English, Czech,
+   * Serbian (Latin script), Spanish, German, Portuguese, Italian and French are
+   * served under /en, /cs, /sr, /es, /de, /pt, /it, /fr.
+   * baseUrl makes useLocaleHead() emit absolute hreflang/canonical links, and
+   * @nuxtjs/sitemap reads the same locales to emit alternates.
    */
   i18n: {
     baseUrl:
@@ -107,6 +153,13 @@ export default defineNuxtConfig({
     locales: [
       { code: 'ru', language: 'ru-RU', name: 'Русский', file: 'ru.json' },
       { code: 'en', language: 'en-US', name: 'English', file: 'en.json' },
+      { code: 'cs', language: 'cs-CZ', name: 'Čeština', file: 'cs.json' },
+      { code: 'sr', language: 'sr-Latn', name: 'Srpski', file: 'sr.json' },
+      { code: 'es', language: 'es-ES', name: 'Español', file: 'es.json' },
+      { code: 'de', language: 'de-DE', name: 'Deutsch', file: 'de.json' },
+      { code: 'pt', language: 'pt-PT', name: 'Português', file: 'pt.json' },
+      { code: 'it', language: 'it-IT', name: 'Italiano', file: 'it.json' },
+      { code: 'fr', language: 'fr-FR', name: 'Français', file: 'fr.json' },
     ],
     detectBrowserLanguage: {
       useCookie: true,

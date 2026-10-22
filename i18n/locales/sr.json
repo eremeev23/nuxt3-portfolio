@@ -1,0 +1,150 @@
+{
+  "home": {
+    "self": "Početna | Početne | Početnih",
+    "title": "Početna",
+    "backHome": "← Početna"
+  },
+  "locales": {
+    "en": "Engleski",
+    "ru": "Ruski",
+    "cs": "Češki",
+    "sr": "Srpski",
+    "es": "Španski",
+    "de": "Nemački",
+    "pt": "Portugalski",
+    "it": "Italijanski",
+    "fr": "Francuski"
+  },
+  "theme": {
+    "light": "Svetla",
+    "dark": "Tamna"
+  },
+  "projects": {
+    "self": "Projekat | Projekta | Projekata",
+    "allProjects": "Svi projekti",
+    "title": "Projekti",
+    "back": "nazad na sve projekte",
+    "domain": "Sajt projekta:",
+    "repository": "Repozitorijum projekta:",
+    "stack": "Stek projekta:",
+    "description": "Opis:",
+    "designedBy": "Dizajn:",
+    "more": "više ->"
+  },
+  "contacts": {
+    "self": "Kontakt | Kontakta | Kontakata",
+    "title": "Kontakt",
+    "formTitle": "PIŠITE MI",
+    "linksTitle": "LINKOVI",
+    "showLinks": "DRUGI NAČINI",
+    "showForm": "NAZAD NA FORMU"
+  },
+  "blog": {
+    "self": "Blog | Bloga | Blogova",
+    "title": "Blog",
+    "back": "nazad na sve objave",
+    "domain": "Domen bloga:",
+    "repository": "Repozitorijum bloga:",
+    "stack": "Stek bloga:",
+    "description": "Opis:",
+    "designedBy": "Dizajn:",
+    "more": "više ->"
+  },
+  "form": {
+    "email": "Vaš e-mail",
+    "name": "Vaše ime",
+    "message": "Vaša poruka",
+    "submit": "POŠALJI",
+    "success": "Hvala, vaša poruka je poslata",
+    "failure": "Poruka nije poslata. Nešto je pošlo naopako."
+  },
+  "error": {
+    "notFound": "Ups... Ova stranica ne postoji :(",
+    "generic": "Nešto je pošlo naopako :(",
+    "home": "na početnu ->",
+    "code": "Greška: {code}",
+    "projectNotFound": "Projekat nije pronađen"
+  },
+  "meta": {
+    "siteName": "Maksim Eremeev",
+    "description": "Maksim Eremeev — frontend programer. Projekti, iskustvo i kontakt.",
+    "home": "Frontend programer",
+    "projects": "Projekti",
+    "blog": "Blog",
+    "contacts": "Kontakt"
+  },
+  "a11y": {
+    "logo": "Eremeev dev",
+    "switchTheme": "Promeni temu",
+    "menu": "Meni",
+    "language": "Jezik",
+    "close": "Zatvori",
+    "submit": "Pošalji poruku",
+    "switchTabs": "Prebaci između forme i linkova",
+    "photo": "Maksim Eremeev",
+    "screenshot": "Snimak ekrana {n}",
+    "home": "Eremeev, na početnu",
+    "sections": "Odeljci sajta"
+  },
+  "footer": {
+    "copyright": "(c) MAKSIM EREMEEV {year}",
+    "title": "Hajde da napravimo nešto"
+  },
+  "links": {
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "telegram": "Telegram",
+    "instagram": "Instagram",
+    "strava": "Strava"
+  },
+  "placeholder": {
+    "title": "Sajt je u izradi",
+    "subtitle": "Uskoro stiže novi dizajn."
+  },
+  "nav": {
+    "hire": "Zaposlite me"
+  },
+  "menu": {
+    "offers": "Otvoren za ponude",
+    "marquee": "Frontend · Vue · Nuxt · TypeScript",
+    "dialog": "Meni sajta",
+    "open": "Otvori meni",
+    "close": "Zatvori meni"
+  },
+  "errors": {
+    "self": "Greška | Greške | Grešaka",
+    "request": "Zahtev",
+    "status": "Status",
+    "didYouMean": "Da li ste mislili",
+    "whereToGo": "Kuda dalje",
+    "routes": "{n} ruta | {n} rute | {n} ruta",
+    "backHome": "← Nazad na početnu",
+    "code": {
+      "403": "Pristup zabranjen",
+      "404": "Stranica nije pronađena",
+      "500": "Interna greška servera",
+      "503": "Servis nije dostupan"
+    },
+    "title": {
+      "403": "Pristup zabranjen",
+      "404": "Stranica nije pronađena",
+      "500": "Interna greška servera",
+      "503": "Servis nije dostupan"
+    },
+    "description": {
+      "403": "Ovde nemaš pristup",
+      "404": "Stranica se izgubila",
+      "500": "Nešto nije u redu sa serverom",
+      "503": "Servis je verovatno pao"
+    },
+    "moreInfo": {
+      "403": "Ova stranica je zatvorena. Ako misliš da treba da je vidiš, piši mi.",
+      "404": "Takva stranica ne postoji. Možda je projekat premešten ili je u linku greška.",
+      "500": "Nešto se pokvarilo na mojoj strani. Osveži stranicu za minut.",
+      "503": "Sajt je nakratko nedostupan. Pokušaj ponovo za nekoliko minuta."
+    }
+  },
+  "common": {
+    "tryAgain": "Pokušaj ponovo ↻"
+  }
+}

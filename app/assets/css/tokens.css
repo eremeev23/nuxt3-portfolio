@@ -11,6 +11,7 @@
 :root {
   color-scheme: dark;
 
+  --white: #ffffff;
   --bg: #101216;
   --fg: #f2f3f4;
   --line: #22262c;
@@ -20,14 +21,12 @@
   --surface-2: #14171b;
   --ph: #4d545d;
   --wave: #2b3038;
-  --accent: #e8722c;
+  --accent: #d4561a;
   --on-accent: #101216;
-  --fill: #c2410c;
-  --on-fill: #ffffff;
-  --nav-line: #e8722c;
+  --accent-text: #d4561a;
 
   /* Not themed. */
-  --b: 2px;
+  --b: 3px;
   --f-display: 'Archivo', 'Inter', 'Segoe UI', system-ui, sans-serif;
   --f-mono: 'JetBrains Mono', ui-monospace, monospace;
 }
@@ -35,18 +34,18 @@
 .light {
   color-scheme: light;
 
-  --bg: #f4f2ec;
+  --white: #ffffff;
+  --bg: #ede6d4;
   --fg: #101216;
   --line: #101216;
-  --muted: #5f636a;
+  --muted: #585c63;
   --text-2: #3f434a;
-  --surface: #e6e3da;
-  --surface-2: #ece9e1;
+  --surface: #dfd7c1;
+  --surface-2: #e6dfcb;
   --ph: #8b8f95;
-  --wave: #cfcabd;
-  --accent: #c2410c;
-  --on-accent: #ffffff;
-  --fill: #c2410c;
-  --on-fill: #ffffff;
-  --nav-line: #c2410c;
+  --wave: #cbc2aa;
+  --accent: #d4561a;
+  --on-accent: #101216;
+  /* Accent-coloured small text: the accent itself is under 4.5:1 on cream. */
+  --accent-text: #101216;
 }

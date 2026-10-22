@@ -16,9 +16,8 @@ const colors = {
   wave: 'var(--wave)',
   accent: 'var(--accent)',
   onAccent: 'var(--on-accent)',
-  fill: 'var(--fill)',
-  onFill: 'var(--on-fill)',
-  navLine: 'var(--nav-line)',
+  // Small text that should read as accent; the accent in dark, fg on light's cream.
+  accentText: 'var(--accent-text)',
 }
 
 export default defineConfig({
@@ -65,18 +64,23 @@ export default defineConfig({
      * tracking were measured off the artboard.
      */
     text: {
+      /*
+       * The display sizes and the lead scale with the viewport (clamp, as in
+       * the design): the max is the desktop size, so nothing changes from
+       * ~1190px up; the min is the phone size.
+       */
       'hero': {
-        fontSize: '7rem',
+        fontSize: 'clamp(3.5rem, 9.4vw, 7rem)', // 56 → 112px
         lineHeight: '0.86',
         letterSpacing: '-0.05em',
       },
       'title': {
-        fontSize: '5.5rem',
+        fontSize: 'clamp(2.5rem, 7.4vw, 5.5rem)', // 40 → 88px
         lineHeight: '0.9',
         letterSpacing: '-0.04em', // carried over from hero, not measured
       },
-      'section': { fontSize: '1.625rem', lineHeight: '1.1' },
-      'lead': { fontSize: '1.1875rem', lineHeight: '1.5' },
+      'section': { fontSize: 'clamp(1.375rem, 1.2vw + 1.0625rem, 1.625rem)', lineHeight: '1.1' }, // 22 → 26px
+      'lead': { fontSize: 'clamp(1rem, 1.6vw, 1.1875rem)', lineHeight: '1.4' }, // 16 → 19px
       'body': { fontSize: '0.9375rem', lineHeight: '1.6' },
       'body-sm': { fontSize: '0.875rem', lineHeight: '1.6' },
       'caption': {
@@ -113,14 +117,23 @@ export default defineConfig({
   },
 
   /*
-   * Brutalist primitives: 2px borders, no radius, no shadows, one accent.
+   * Brutalist primitives: --b (3px) borders, no radius, no shadows, one accent.
    */
   shortcuts: {
-    'brut': 'border-2 border-line',
+    'brut': 'bw b-solid border-line',
     'h-page': 'font-display font-900 uppercase leading-[.85] tracking-[-.045em]',
     'label': 'font-mono font-800 text-[11px] tracking-[.08em] text-muted',
-    'btn-acc': 'inline-flex items-center min-h-11 px-5 py-3.5 bg-accent text-onAccent font-mono font-800 text-xs',
+    'btn-acc': 'inline-flex items-center min-h-11 px-5 py-3.5 max-[520px]:px-4 max-[520px]:py-[13px] '
+      + 'bg-accent text-onAccent font-mono font-800 text-xs',
     'stripe': 'brut bg-[repeating-linear-gradient(135deg,var(--surface)_0_8px,var(--surface-2)_8px_16px)]',
+    // Page gutter from the design (.gut): 28px, 16px at ≤700px, never inside the notch.
+    'gut': 'pl-[max(28px,env(safe-area-inset-left))] pr-[max(28px,env(safe-area-inset-right))] '
+      + 'max-[700px]:pl-[max(16px,env(safe-area-inset-left))] max-[700px]:pr-[max(16px,env(safe-area-inset-right))]',
+    // Header cells: full-height, split by a --b rule on the left; type comes from the header.
+    'nav-cell': 'relative flex items-center px-5 py-4 b-0 bw-l b-solid b-line bg-transparent text-muted uppercase '
+      + 'whitespace-nowrap no-underline cursor-pointer transition-colors hover:bg-surface hover:text-fg',
+    'nav-hire': 'flex items-center px-[22px] py-4 b-0 bw-l b-solid b-line bg-accent text-white '
+      + 'whitespace-nowrap no-underline hover:brightness-108',
   },
 
   /*
@@ -130,6 +143,30 @@ export default defineConfig({
    * -------------------------------------------------------------------------
    */
   rules: [
+    /*
+     * Border width from the --b token (tokens.css): `bw` all sides, `bw-t` /
+     * `-r` / `-b` / `-l` one side, `bw-x` / `bw-y` a pair. Every structural
+     * border goes through it, so --b is the single place to change the weight.
+     */
+    [
+      /^bw(?:-([trblxy]))?$/,
+      ([, side]) => {
+        const sides: Record<string, string[]> = {
+          t: ['top'],
+          r: ['right'],
+          b: ['bottom'],
+          l: ['left'],
+          x: ['left', 'right'],
+          y: ['top', 'bottom'],
+        }
+
+        if (!side) {
+          return { 'border-width': 'var(--b)' }
+        }
+
+        return Object.fromEntries(sides[side]!.map(name => [`border-${name}-width`, 'var(--b)']))
+      },
+    ],
     [
       'grid-cols-custom',
       { 'grid-template-columns': 'repeat(auto-fill, minmax(240px, 1fr))' },
@@ -139,5 +176,8 @@ export default defineConfig({
       { 'grid-template-columns': 'repeat(auto-fill, minmax(300px, 1fr))' },
     ],
     ['list-square', { 'list-style-type': 'square' }],
+    ['cursor-pointer', { cursor: 'var(--cursor-pointer)' }],
+    ['cursor-open', { cursor: 'var(--cursor-open)' }],
+    ['cursor-text', { cursor: 'var(--cursor-text)' }],
   ],
 })

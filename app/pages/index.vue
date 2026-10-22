@@ -1,19 +1,11 @@
 <script setup lang="ts">
-import InfoBlock from '~/libs/App/components/InfoBlock.vue'
-import AppLogo from '~/libs/App/components/AppLogo.vue'
-
 const { t } = useI18n()
 
 useHead({ title: () => t('meta.home') })
 </script>
 
 <template>
-  <div>
-    <header>
-      <AppLogo />
-    </header>
-    <main class="min-h-screen flex flex-col justify-center gap-6 px-4 lg:px-16">
-      <InfoBlock />
-    </main>
+  <div class="gut py-10">
+    <PageTitle :text="$t('meta.home')" />
   </div>
 </template>
