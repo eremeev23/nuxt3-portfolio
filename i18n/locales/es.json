@@ -1,0 +1,150 @@
+{
+  "home": {
+    "self": "Inicio | Inicios",
+    "title": "Inicio",
+    "backHome": "← Inicio"
+  },
+  "locales": {
+    "en": "Inglés",
+    "ru": "Ruso",
+    "cs": "Checo",
+    "sr": "Serbio",
+    "es": "Español",
+    "de": "Alemán",
+    "pt": "Portugués",
+    "it": "Italiano",
+    "fr": "Francés"
+  },
+  "theme": {
+    "light": "Claro",
+    "dark": "Oscuro"
+  },
+  "projects": {
+    "self": "Proyecto | Proyectos",
+    "allProjects": "Todos los proyectos",
+    "title": "Proyectos",
+    "back": "volver a todos los proyectos",
+    "domain": "Sitio del proyecto:",
+    "repository": "Repositorio del proyecto:",
+    "stack": "Stack del proyecto:",
+    "description": "Descripción:",
+    "designedBy": "Diseño de",
+    "more": "más ->"
+  },
+  "contacts": {
+    "self": "Contacto | Contactos",
+    "title": "Contacto",
+    "formTitle": "ESCRÍBEME",
+    "linksTitle": "ENLACES",
+    "showLinks": "OTRAS FORMAS",
+    "showForm": "VOLVER AL FORMULARIO"
+  },
+  "blog": {
+    "self": "Blog | Blogs",
+    "title": "Blog",
+    "back": "volver a todas las entradas",
+    "domain": "Dominio del blog:",
+    "repository": "Repositorio del blog:",
+    "stack": "Stack del blog:",
+    "description": "Descripción:",
+    "designedBy": "Diseño de",
+    "more": "más ->"
+  },
+  "form": {
+    "email": "Tu correo electrónico",
+    "name": "Tu nombre",
+    "message": "Tu mensaje",
+    "submit": "ENVIAR",
+    "success": "Gracias, tu mensaje ha sido enviado",
+    "failure": "El mensaje no se ha enviado. Algo salió mal."
+  },
+  "error": {
+    "notFound": "Vaya... Esta página no existe :(",
+    "generic": "Algo salió mal :(",
+    "home": "ir a la página de inicio ->",
+    "code": "Error: {code}",
+    "projectNotFound": "Proyecto no encontrado"
+  },
+  "meta": {
+    "siteName": "Maksim Eremeev",
+    "description": "Maksim Eremeev — desarrollador frontend. Proyectos, trayectoria y contacto.",
+    "home": "Desarrollador frontend",
+    "projects": "Proyectos",
+    "blog": "Blog",
+    "contacts": "Contacto"
+  },
+  "a11y": {
+    "logo": "Eremeev dev",
+    "switchTheme": "Cambiar tema",
+    "menu": "Menú",
+    "language": "Idioma",
+    "close": "Cerrar",
+    "submit": "Enviar mensaje",
+    "switchTabs": "Cambiar entre formulario y enlaces",
+    "photo": "Maksim Eremeev",
+    "screenshot": "Captura de pantalla {n}",
+    "home": "Eremeev, ir al inicio",
+    "sections": "Secciones del sitio"
+  },
+  "footer": {
+    "copyright": "(c) MAKSIM EREMEEV {year}",
+    "title": "Construyamos algo"
+  },
+  "links": {
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "telegram": "Telegram",
+    "instagram": "Instagram",
+    "strava": "Strava"
+  },
+  "placeholder": {
+    "title": "Sitio en construcción",
+    "subtitle": "Pronto llegará un nuevo diseño."
+  },
+  "nav": {
+    "hire": "Contrátame"
+  },
+  "menu": {
+    "offers": "Abierto a ofertas",
+    "marquee": "Frontend · Vue · Nuxt · TypeScript",
+    "dialog": "Menú del sitio",
+    "open": "Abrir menú",
+    "close": "Cerrar menú"
+  },
+  "errors": {
+    "self": "Error | Errores",
+    "request": "Solicitud",
+    "status": "Estado",
+    "didYouMean": "¿Quisiste decir",
+    "whereToGo": "Adónde ir",
+    "routes": "{n} ruta | {n} rutas",
+    "backHome": "← Volver al inicio",
+    "code": {
+      "403": "Acceso prohibido",
+      "404": "Página no encontrada",
+      "500": "Error interno del servidor",
+      "503": "Servicio no disponible"
+    },
+    "title": {
+      "403": "Acceso prohibido",
+      "404": "Página no encontrada",
+      "500": "Error interno del servidor",
+      "503": "Servicio no disponible"
+    },
+    "description": {
+      "403": "No tienes acceso aquí",
+      "404": "Página perdida",
+      "500": "Algo falla en el servidor",
+      "503": "El servicio parece caído"
+    },
+    "moreInfo": {
+      "403": "Esta página está cerrada. Si crees que deberías verla, escríbeme.",
+      "404": "Esta página no existe. Quizá el proyecto se ha movido o hay una errata en el enlace.",
+      "500": "Algo se ha roto por mi parte. Recarga la página en un minuto.",
+      "503": "El sitio no está disponible por un momento. Vuelve a intentarlo en un par de minutos."
+    }
+  },
+  "common": {
+    "tryAgain": "Reintentar ↻"
+  }
+}

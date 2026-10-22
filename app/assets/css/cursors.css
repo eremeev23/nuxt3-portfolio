@@ -1,0 +1,36 @@
+/*
+ * Custom cursors, 30px (open: 73x30). Files are in public/icons, hotspots: arrow 3 3,
+ * hand fingertip 11 2, text caret 15 15.
+ * The URLs live in variables so UnoCSS cursor-* utilities (uno.config.ts) use the
+ * same files. Unlayered on purpose: these element rules must beat the preflight
+ * `button { cursor: pointer }`; utilities still win, and they point at the same
+ * variables. Mouse only - touch screens never show a cursor.
+ */
+:root {
+  --cursor-default: url('/icons/default.svg') 3 3, auto;
+  --cursor-pointer: url('/icons/pointer.svg') 11 2, pointer;
+  --cursor-open: url('/icons/open.svg') 11 2, pointer;
+  --cursor-text: url('/icons/text.svg') 15 15, text;
+}
+
+@media (pointer: fine) {
+  body {
+    cursor: var(--cursor-default);
+  }
+
+  a,
+  button,
+  [role='button'],
+  [role='tab'],
+  label,
+  summary,
+  select {
+    cursor: var(--cursor-pointer);
+  }
+
+  input,
+  textarea,
+  [contenteditable='true'] {
+    cursor: var(--cursor-text);
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "home": {
+    "self": "Startseite | Startseiten",
+    "title": "Start",
+    "backHome": "← Start"
+  },
+  "locales": {
+    "en": "Englisch",
+    "ru": "Russisch",
+    "cs": "Tschechisch",
+    "sr": "Serbisch",
+    "es": "Spanisch",
+    "de": "Deutsch",
+    "pt": "Portugiesisch",
+    "it": "Italienisch",
+    "fr": "Französisch"
+  },
+  "theme": {
+    "light": "Hell",
+    "dark": "Dunkel"
+  },
+  "projects": {
+    "self": "Projekt | Projekte",
+    "allProjects": "Alle Projekte",
+    "title": "Projekte",
+    "back": "zurück zu allen Projekten",
+    "domain": "Projekt-Website:",
+    "repository": "Projekt-Repository:",
+    "stack": "Projekt-Stack:",
+    "description": "Beschreibung:",
+    "designedBy": "Design von",
+    "more": "mehr ->"
+  },
+  "contacts": {
+    "self": "Kontakt | Kontakte",
+    "title": "Kontakt",
+    "formTitle": "SCHREIB MIR",
+    "linksTitle": "LINKS",
+    "showLinks": "ANDERE WEGE",
+    "showForm": "ZURÜCK ZUM FORMULAR"
+  },
+  "blog": {
+    "self": "Blog | Blogs",
+    "title": "Blog",
+    "back": "zurück zu allen Beiträgen",
+    "domain": "Blog-Domain:",
+    "repository": "Blog-Repository:",
+    "stack": "Blog-Stack:",
+    "description": "Beschreibung:",
+    "designedBy": "Design von",
+    "more": "mehr ->"
+  },
+  "form": {
+    "email": "Deine E-Mail",
+    "name": "Dein Name",
+    "message": "Deine Nachricht",
+    "submit": "SENDEN",
+    "success": "Danke, deine Nachricht wurde gesendet",
+    "failure": "Nachricht nicht gesendet. Etwas ist schiefgelaufen."
+  },
+  "error": {
+    "notFound": "Ups... Diese Seite gibt es nicht :(",
+    "generic": "Etwas ist schiefgelaufen :(",
+    "home": "zur Startseite ->",
+    "code": "Fehler: {code}",
+    "projectNotFound": "Projekt nicht gefunden"
+  },
+  "meta": {
+    "siteName": "Maksim Eremeev",
+    "description": "Maksim Eremeev — Frontend-Entwickler. Projekte, Werdegang und Kontakt.",
+    "home": "Frontend-Entwickler",
+    "projects": "Projekte",
+    "blog": "Blog",
+    "contacts": "Kontakt"
+  },
+  "a11y": {
+    "logo": "Eremeev dev",
+    "switchTheme": "Design wechseln",
+    "menu": "Menü",
+    "language": "Sprache",
+    "close": "Schließen",
+    "submit": "Nachricht senden",
+    "switchTabs": "Zwischen Formular und Links wechseln",
+    "photo": "Maksim Eremeev",
+    "screenshot": "Screenshot {n}",
+    "home": "Eremeev, zur Startseite",
+    "sections": "Bereiche der Website"
+  },
+  "footer": {
+    "copyright": "(c) MAKSIM EREMEEV {year}",
+    "title": "Lass uns was bauen"
+  },
+  "links": {
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "telegram": "Telegram",
+    "instagram": "Instagram",
+    "strava": "Strava"
+  },
+  "placeholder": {
+    "title": "Website im Aufbau",
+    "subtitle": "Ein neues Design ist unterwegs."
+  },
+  "nav": {
+    "hire": "Stell mich ein"
+  },
+  "menu": {
+    "offers": "Offen für Angebote",
+    "marquee": "Frontend · Vue · Nuxt · TypeScript",
+    "dialog": "Website-Menü",
+    "open": "Menü öffnen",
+    "close": "Menü schließen"
+  },
+  "errors": {
+    "self": "Fehler | Fehler",
+    "request": "Anfrage",
+    "status": "Status",
+    "didYouMean": "Meintest du",
+    "whereToGo": "Wohin jetzt",
+    "routes": "{n} Route | {n} Routen",
+    "backHome": "← Zurück zur Startseite",
+    "code": {
+      "403": "Zugriff verweigert",
+      "404": "Seite nicht gefunden",
+      "500": "Interner Serverfehler",
+      "503": "Dienst nicht verfügbar"
+    },
+    "title": {
+      "403": "Zugriff verweigert",
+      "404": "Seite nicht gefunden",
+      "500": "Interner Serverfehler",
+      "503": "Dienst nicht verfügbar"
+    },
+    "description": {
+      "403": "Hier hast du keinen Zugriff",
+      "404": "Seite verloren",
+      "500": "Etwas stimmt nicht mit dem Server",
+      "503": "Der Dienst ist wohl down"
+    },
+    "moreInfo": {
+      "403": "Diese Seite ist gesperrt. Wenn du meinst, dass du sie sehen solltest, schreib mir.",
+      "404": "Diese Seite gibt es nicht. Vielleicht ist das Projekt umgezogen oder der Link hat einen Tippfehler.",
+      "500": "Bei mir ist etwas kaputtgegangen. Lade die Seite in einer Minute neu.",
+      "503": "Die Seite ist kurz nicht erreichbar. Versuch es in ein paar Minuten noch einmal."
+    }
+  },
+  "common": {
+    "tryAgain": "Erneut versuchen ↻"
+  }
+}

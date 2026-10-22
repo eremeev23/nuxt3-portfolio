@@ -1,9 +1,42 @@
 {
-  "pages": {
-    "projects": "PROJECTS",
-    "contacts": "CONTACTS"
+  "common": {
+    "tryAgain": "Try again ↻"
   },
-  "project": {
+  "footer": {
+    "copyright": "(c) MAKSIM EREMEEV {year}",
+    "title": "Let's build something"
+  },
+  "links": {
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "telegram": "Telegram",
+    "instagram": "Instagram",
+    "strava": "Strava"
+  },
+  "home": {
+    "self": "Home | Home pages",
+    "title": "Home",
+    "backHome": "← Home"
+  },
+  "locales": {
+    "en": "English",
+    "ru": "Russian",
+    "cs": "Czech",
+    "sr": "Serbian",
+    "es": "Spanish",
+    "de": "German",
+    "pt": "Portuguese",
+    "it": "Italian",
+    "fr": "French"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "projects": {
+    "self": "Project | Projects",
+    "allProjects": "All projects",
+    "title": "Projects",
     "back": "back to all projects",
     "domain": "Project domain:",
     "repository": "Project repository:",
@@ -13,10 +46,23 @@
     "more": "more ->"
   },
   "contacts": {
+    "self": "Contact | Contacts",
+    "title": "Contacts",
     "formTitle": "CONTACT ME",
     "linksTitle": "LINKS",
     "showLinks": "OTHER WAYS",
     "showForm": "BACK TO FORM"
+  },
+  "blog": {
+    "self": "Blog | Blogs",
+    "title": "Blog",
+    "back": "back to all posts",
+    "domain": "Blog domain:",
+    "repository": "Blog repository:",
+    "stack": "Blog stack:",
+    "description": "Description:",
+    "designedBy": "Designed by",
+    "more": "more ->"
   },
   "form": {
     "email": "Your e-mail",
@@ -38,6 +84,7 @@
     "description": "Maksim Eremeev — frontend developer. Projects, career and contacts.",
     "home": "Frontend developer",
     "projects": "Projects",
+    "blog": "Blog",
     "contacts": "Contacts"
   },
   "a11y": {
@@ -49,13 +96,55 @@
     "submit": "Send message",
     "switchTabs": "Switch between form and links",
     "photo": "Maksim Eremeev",
-    "screenshot": "Screenshot {n}"
-  },
-  "footer": {
-    "copyright": "(c) MAKSIM EREMEEV {year}"
+    "screenshot": "Screenshot {n}",
+    "home": "Eremeev, to the home page",
+    "sections": "Site sections"
   },
   "placeholder": {
     "title": "Site under construction",
     "subtitle": "A new design is on its way."
+  },
+  "nav": {
+    "hire": "Hire me"
+  },
+  "menu": {
+    "offers": "Open to offers",
+    "marquee": "Frontend · Vue · Nuxt · TypeScript",
+    "dialog": "Site menu",
+    "open": "Open menu",
+    "close": "Close menu"
+  },
+  "errors": {
+    "self": "Error | Errors",
+    "request": "Request",
+    "status": "Status",
+    "didYouMean": "Did you mean",
+    "whereToGo": "Where to go",
+    "routes": "{n} route | {n} routes",
+    "backHome": "← Back home",
+    "code": {
+      "403": "Forbidden",
+      "404": "Page not found",
+      "500": "Internal server error",
+      "503": "Service is unavailable"
+    },
+    "title": {
+      "403": "Access denied",
+      "404": "Page not found",
+      "500": "Internal server error",
+      "503": "Service is unavailable"
+    },
+    "description": {
+      "403": "You have no access here",
+      "404": "Lost the page",
+      "500": "Something wrong on the server",
+      "503": "Service might be down"
+    },
+    "moreInfo": {
+      "403": "This page is closed. If you think you should see it, write to me.",
+      "404": "There's no such page. The project may have moved, or there's a typo in the link.",
+      "500": "Something broke on my side. Refresh the page in a minute.",
+      "503": "The site is down for a moment. Try again in a couple of minutes."
+    }
   }
 }

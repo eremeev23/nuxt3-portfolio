@@ -1,4 +1,4 @@
-export const LOCALE_CODES = ['en', 'ru'] as const
+export const LOCALE_CODES = ['en', 'ru', 'cs', 'sr', 'es', 'de', 'pt', 'it', 'fr'] as const
 
 export type LocaleCode = (typeof LOCALE_CODES)[number]
 

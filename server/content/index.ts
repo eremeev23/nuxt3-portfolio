@@ -10,13 +10,26 @@ import { mainPage as mainPageRu } from './ru/mainPage'
 import { projects as projectsRu } from './ru/projects'
 import { contacts as contactsRu } from './ru/contacts'
 
+const en: ContentBundle = {
+  header: headerEn,
+  mainPage: mainPageEn,
+  projects: projectsEn,
+  contacts: contactsEn,
+}
+
+/*
+ * cs, sr, es, de, pt, it and fr have UI strings (i18n/locales) but no translated copy yet, so
+ * they serve the English content until their own trees are written.
+ */
 export const content: Record<LocaleCode, ContentBundle> = {
-  en: {
-    header: headerEn,
-    mainPage: mainPageEn,
-    projects: projectsEn,
-    contacts: contactsEn,
-  },
+  en,
+  cs: en,
+  sr: en,
+  es: en,
+  de: en,
+  pt: en,
+  it: en,
+  fr: en,
   ru: {
     header: headerRu,
     mainPage: mainPageRu,
